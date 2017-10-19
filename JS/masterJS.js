@@ -42,6 +42,8 @@ function IgualarApuesta() {
   var diferencia = 0;
   if(jugadores[turno-1].dinero >= apuestaMinima){
     diferencia = apuestaMinima - jugadores[turno-1].apuesta;
+    alert(apuestaMinima);
+    alert(diferencia);
     jugadores[turno-1].apuesta += diferencia;
     jugadores[turno-1].dinero -= diferencia;
     dineroMesa += diferencia;
@@ -62,14 +64,23 @@ function IgualarApuestaInicial() {
 
 function AumentarApuesta() {
   var ingresada = prompt("Ingrese cuanto aumentara su apuesta");//validar esto despues, numeros
-  var acumuladorApuesta = parseInt(ingresada);//luego comparar con la apuesta minima
-
-  if(jugadores[turno-1].dinero >= acumuladorApuesta){
-    jugadores[turno-1].dinero = jugadores[turno-1].dinero - acumuladorApuesta;
-    jugadores[turno-1].apuesta += acumuladorApuesta;//incrementar la apuesta del jugador
-    dineroMesa += acumuladorApuesta;
+  var ingresadaInt = parseInt(ingresada);//luego comparar con la apuesta minima
+  if(jugadores[turno-1].dinero >= ingresadaInt){
+    if(ronda == 1){
+      jugadores[turno-1].dinero = jugadores[turno-1].dinero - (ingresadaInt+apuestaMinima);
+      jugadores[turno-1].apuesta += (ingresadaInt+apuestaMinima);//incrementar la apuesta del jugador
+      dineroMesa += ingresadaInt;
+      apuestaMinima+=ingresadaInt;
+      document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+      AumentarTurno();
+    }else{
+    jugadores[turno-1].dinero = jugadores[turno-1].dinero - ingresadaInt;
+    jugadores[turno-1].apuesta += ingresadaInt;//incrementar la apuesta del jugador
+    dineroMesa += ingresadaInt;
+    apuestaMinima+=ingresadaInt;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     AumentarTurno();
+    }
   }else {
     alert("Dinero Insufiente");
   }
