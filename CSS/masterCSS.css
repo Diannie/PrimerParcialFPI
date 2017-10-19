@@ -132,7 +132,8 @@ header {
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
+  right: 0;
   bottom: 0;
   left: 1;
   padding: 1rem;
@@ -146,7 +147,7 @@ header {
   background-color: #2a6592;
   color: white ;
   border: 1px solid white;
-  width: 55%;
+  width: 100%;
   text-align: center;
   text-decoration: none;
   font-size: 15px;
