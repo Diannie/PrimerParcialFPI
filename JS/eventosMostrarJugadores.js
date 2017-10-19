@@ -584,7 +584,11 @@ function mostrarJugadores(jugadores){
 function Posicionamiento(jugador, posicion) {
   document.getElementById('p'+posicion).style.visibility = 'visible';
   document.getElementById('p'+posicion+'Nombre').innerHTML = jugador.nombre;
-  document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
+  if (typeof jugador.sexo == 'undefined') {
+    document.getElementById('p'+posicion+'Foto').src = "IMG/error.png";
+  }else {
+    document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
+  }
   document.getElementById('p'+posicion+'Dinero').innerHTML = "Saldo: $"+jugador.dinero;
 
 }
@@ -593,7 +597,12 @@ function PosicionamientoConCarta(jugador, posicion) {
   document.getElementById('p'+posicion+'Nombre').innerHTML = jugador.nombre;
   document.getElementById('p'+posicion+'Carta1').src = "IMG/"+jugador.cartas[0].path+".png";
   document.getElementById('p'+posicion+'Carta2').src = "IMG/"+jugador.cartas[1].path+".png";
-  document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
+  if (typeof jugador.sexo == 'undefined') {
+    document.getElementById('p'+posicion+'Foto').src = "IMG/error.png";
+  }else {
+    document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
+  }
+
   document.getElementById('p'+posicion+'Dinero').innerHTML = "Saldo: $"+jugador.dinero;
 }
 function PosicionamientoSinCarta(jugador, posicion) {
@@ -601,6 +610,10 @@ function PosicionamientoSinCarta(jugador, posicion) {
   document.getElementById('p'+posicion+'Nombre').innerHTML = jugador.nombre;
   document.getElementById('p'+posicion+'Carta1').src = "IMG/back.png";
   document.getElementById('p'+posicion+'Carta2').src = "IMG/back.png";
-  document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
+  if (typeof jugador.sexo == 'undefined') {
+    document.getElementById('p'+posicion+'Foto').src = "IMG/error.png";
+  }else {
+    document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
+  }
   document.getElementById('p'+posicion+'Dinero').innerHTML = "Saldo: $"+jugador.dinero;
 }

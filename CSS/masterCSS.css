@@ -135,14 +135,18 @@ header {
   background-position: center center;
   background-repeat: no-repeat;
   text-align: center;
-  position: relative;
-  background-color: darkgray;
+  position: relative;  
   width: 10%;
-  height: 5%;
+  height: 15%;
   left: 25%;
-  top: 25%;
+  top: 30%;
 }
-
+#valoresMesa label{
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
 
 .footer {
   position: absolute;

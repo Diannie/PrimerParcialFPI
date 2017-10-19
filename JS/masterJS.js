@@ -6,16 +6,20 @@ var cartasMesa = [];
 var dineroMesa = 0;
 var dealer = 1;
 var turno = 1;
-var ronda = 0;
+var ronda = 1;
 var pasoActivo = true;
 
-function Paso() {
+function AumentarTurno() {
   turno++;
   if (jugadores.length < turno) {
     turno = 1;
     ronda++;
     if (ronda == 2) {
       GenerarFlop();
+    }else if(ronda == 3){
+      GenerarTurn();
+    }else if(ronda == 4){
+      GenerarRiver();
     }
   }
   console.log("turno:"+turno);
@@ -23,13 +27,62 @@ function Paso() {
   mostrarTurnoJugador(jugadores,turno);
 
 }
+function Paso() {
+  if(turno == 1 && ronda == 1){
+    document.getElementById('btnPaso').disabled = true;
+  }else {
+    document.getElementById('btnPaso').disabled = false;
+    AumentarTurno();
+
+  }
+
+}
+function IgualarApuesta() {
+  jugadores[turno-1].dinero += (-apuestaMinima);
+  alert(jugadores[turno-1].dinero);
+  dineroMesa += apuestaMinima;
+  document.getElementById('p'+(turno)+'Dinero').innerHTML = "Saldo: $"+jugadores[turno-1].dinero;
+  document.getElementById('p'+(turno)+'Apuesta').innerHTML = "Apuesta $"+jugadores[turno-1].apuesta;
+  document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+  AumentarTurno();
+}
+function AumentarApuesta() {
+  var ingresada = prompt("Ingrese cuanto aumentara su apuesta");//validar esto despues
+  var acumuladorApuesta = parseInt(ingresada);//luego comparar con la apuesta minima
+  if(jugadores[turno-1].dinero > acumuladorApuesta){
+    jugadores[turno-1].apuesta+=acumuladorApuesta;//incrementar la apuesta del jugador
+    alert();
+    jugadores[turno-1].dinero += (-acumuladorApuesta);
+    alert(jugadores[turno-1].dinero);
+    dineroMesa += acumuladorApuesta;
+    document.getElementById('p'+(turno)+'Dinero').innerHTML = "Saldo: $"+jugadores[turno-1].dinero;
+    document.getElementById('p'+(turno)+'Apuesta').innerHTML = "Apuesta $"+jugadores[turno-1].apuesta;
+    document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+    AumentarTurno();
+  }else {
+    alert("Dinero Insufiente");
+  }
+}
+function Retirarse() {
+  jugadores[turno].activo = false;
+  AumentarTurno();
+}
+
+
 function GenerarFlop() {
   for (var i = 0; i < 3; i++) {
     cartasMesa.push(RepartirCarta(mazoDeCartas));
     document.getElementById('carta'+(i+1)+'Mesa').src = "IMG/"+cartasMesa[i].path+".png";
   }
 }
-
+function GenerarTurn() {
+  cartasMesa.push(RepartirCarta(mazoDeCartas));
+  document.getElementById('carta4Mesa').src = "IMG/"+cartasMesa[3].path+".png";
+}
+function GenerarRiver() {
+  cartasMesa.push(RepartirCarta(mazoDeCartas));
+  document.getElementById('carta5Mesa').src = "IMG/"+cartasMesa[4].path+".png";
+}
 function ValidarApuestaInicial() {
   var valorInicial = document.getElementById("txtApuestaInicial");
   valorInicial = parseInt(valorInicial.value);
@@ -41,7 +94,6 @@ function ValidarApuestaInicial() {
     alert("La apuesta mínima no debe sobrepasar los $1000");
   }
 }
-
 function RegistrarApuestaMinima(entradaApuestaInput) {
   var entradaApuesta = document.getElementById(entradaApuestaInput).value;
   apuestaMinima = parseInt(entradaApuesta);
@@ -94,6 +146,7 @@ function ValidarParaIniciarJuego() {
     MostrarAreaDeJuego();
     mostrarJugadores(jugadores);
     mostrarTurnoJugador(jugadores,turno);
+    IgualarApuesta();
   }else {
     alert("El mínimo de jugadores para iniciar la partida es 2");
   }
