@@ -1,8 +1,8 @@
 function mostrarTurnoJugador(jugadores, idJugador) {
   if (jugadores.length == 2) {
     if(idJugador == 1){
-      PosicionamientoConCarta(jugadores[0], 7);
-      PosicionamientoSinCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoSinCarta(jugadores[0], 7);
     }else if(idJugador == 2){
       PosicionamientoSinCarta(jugadores[0], 7);
       PosicionamientoConCarta(jugadores[1], 2);
