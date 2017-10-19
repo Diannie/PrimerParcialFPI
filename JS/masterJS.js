@@ -4,10 +4,10 @@ var mazoDeCartas = Mazo();
 var cartasMesa = [];
 //variables para jugabilidad
 var dineroMesa = 0;
-var dealer = 1;
 var turno = 1;
 var ronda = 1;
-var pasoActivo = true;
+var activos = 0;
+var ganadorPorDefault;
 
 function AumentarTurno() {
   turno++;
@@ -51,8 +51,8 @@ function Paso() {
 
 function IgualarApuesta() {
   var diferencia = 0;
-  if(jugadores[turno-1].dinero >= apuestaMinima){
-    diferencia = apuestaMinima - jugadores[turno-1].apuesta;
+  diferencia = apuestaMinima - jugadores[turno-1].apuesta;
+  if(jugadores[turno-1].dinero >= diferencia){
     jugadores[turno-1].apuesta += diferencia;
     jugadores[turno-1].dinero -= diferencia;
     dineroMesa += diferencia;
@@ -88,12 +88,35 @@ function AumentarApuesta() {
   }
 }
 
-function Retirarse() {
-  jugadores[turno].activo = false;
+function Retirarse() { //arreglarlo ah
+  jugadores[turno-1].activo = false;
+  jugadores[turno-1].sexo = undefined;
+  for (var i = 0; i < jugadores.length; i++) {
+    if(jugadores[i].activo == true){
+      activos++;
+      ganadorPorDefault = i;
+    }
+  }
+  if(activos==1){
+    alert("El ganador por default es"+jugadores[ganadorPorDefault].nombre);
+  }
   AumentarTurno();
 }
 
+function apostarTodo(){
+  var diferencia = 0;
+  diferencia = apuestaMinima - jugadores[turno-1].apuesta;
+  jugadores[turno-1].apuesta += (jugadores[turno-1].dinero);//incrementar la apuesta del jugador
+  dineroMesa += (jugadores[turno-1].dinero);
 
+    if (jugadores[turno-1].dinero > diferencia) {
+      apuestaMinima+=jugadores[turno-1].dinero;
+    }
+    jugadores[turno-1].dinero = 0;
+    document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+    AumentarTurno();
+
+}
 function GenerarFlop() {
   for (var i = 0; i < 3; i++) {
     cartasMesa.push(RepartirCarta(mazoDeCartas));

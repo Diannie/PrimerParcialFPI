@@ -5,5 +5,5 @@ function Jugador(id, nombre, sexo, cartas, dinero) {
   this.cartas = cartas;
   this.dinero = dinero;
   this.activo = true;
-  this.apuesta = 0; 
+  this.apuesta = 0;
 }
