@@ -1,6 +1,7 @@
 var apuestaMinima = 1;
 var jugadores = [];
 var mazoDeCartas = Mazo();
+var cartasMesa = [];
 //variables para jugabilidad
 var dineroMesa = 0;
 var dealer = 1;
@@ -13,11 +14,20 @@ function Paso() {
   if (jugadores.length < turno) {
     turno = 1;
     ronda++;
+    if (ronda == 2) {
+      GenerarFlop();
+    }
   }
   console.log("turno:"+turno);
   console.log("ronda:"+ronda);
   mostrarTurnoJugador(jugadores,turno);
 
+}
+function GenerarFlop() {
+  for (var i = 0; i < 3; i++) {
+    cartasMesa.push(RepartirCarta(mazoDeCartas));
+    document.getElementById('carta'+(i+1)+'Mesa').src = "IMG/"+cartasMesa[i].path+".png";
+  }
 }
 
 function ValidarApuestaInicial() {

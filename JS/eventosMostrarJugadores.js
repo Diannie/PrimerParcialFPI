@@ -1,8 +1,9 @@
 function mostrarTurnoJugador(jugadores, idJugador) {
+
   if (jugadores.length == 2) {
     if(idJugador == 1){
-      PosicionamientoConCarta(jugadores[1], 2);
-      PosicionamientoSinCarta(jugadores[0], 7);
+      PosicionamientoConCarta(jugadores[0], 7);
+      PosicionamientoSinCarta(jugadores[1], 2);
     }else if(idJugador == 2){
       PosicionamientoSinCarta(jugadores[0], 7);
       PosicionamientoConCarta(jugadores[1], 2);
@@ -27,23 +28,23 @@ function mostrarTurnoJugador(jugadores, idJugador) {
     if (idJugador == 1) {
       PosicionamientoConCarta(jugadores[0], 1);
       PosicionamientoSinCarta(jugadores[1], 3);
-      PosicionamientoSinCarta(jugadores[3], 8);
       PosicionamientoSinCarta(jugadores[2], 6);
+      PosicionamientoSinCarta(jugadores[3], 8);
     }else if (idJugador == 2) {
       PosicionamientoSinCarta(jugadores[0], 1);
       PosicionamientoConCarta(jugadores[1], 3);
-      PosicionamientoSinCarta(jugadores[3], 8);
       PosicionamientoSinCarta(jugadores[2], 6);
+      PosicionamientoSinCarta(jugadores[3], 8);
     }else if (idJugador == 3) {
       PosicionamientoSinCarta(jugadores[0], 1);
       PosicionamientoSinCarta(jugadores[1], 3);
-      PosicionamientoSinCarta(jugadores[3], 8);
       PosicionamientoConCarta(jugadores[2], 6);
+      PosicionamientoSinCarta(jugadores[3], 8);
     }else if (idJugador == 4) {
       PosicionamientoSinCarta(jugadores[0], 1);
       PosicionamientoSinCarta(jugadores[1], 3);
-      PosicionamientoConCarta(jugadores[3], 8);
       PosicionamientoSinCarta(jugadores[2], 6);
+      PosicionamientoConCarta(jugadores[3], 8);
     }
   }
   else if (jugadores.length == 5) {
