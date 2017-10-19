@@ -27,28 +27,31 @@ function AumentarTurno() {
   mostrarTurnoJugador(jugadores,turno);
 
 }
+
 function Paso() {
   if(turno == 1 && ronda == 1){
     document.getElementById('btnPaso').disabled = true;
   }else {
     document.getElementById('btnPaso').disabled = false;
     AumentarTurno();
-
   }
 
 }
+
 function IgualarApuesta() {
   var diferencia = 0;
   if(jugadores[turno-1].dinero >= apuestaMinima){
-    jugadores[turno-1].apuesta += (apuestaMinima - jugadores[turno-1].apuesta);
-    jugadores[turno-1].dinero -= (apuestaMinima - jugadores[turno-1].apuesta);
-    dineroMesa += (apuestaMinima - jugadores[turno-1].apuesta);
+    diferencia = apuestaMinima - jugadores[turno-1].apuesta;
+    jugadores[turno-1].apuesta += diferencia;
+    jugadores[turno-1].dinero -= diferencia;
+    dineroMesa += diferencia;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     AumentarTurno();
   }else {
     alert("Dinero Insufiente");
   }
 }
+
 function IgualarApuestaInicial() {
   jugadores[0].dinero = jugadores[0].dinero - apuestaMinima;
   dineroMesa = apuestaMinima;
@@ -56,6 +59,7 @@ function IgualarApuestaInicial() {
   document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
   AumentarTurno();
 }
+
 function AumentarApuesta() {
   var ingresada = prompt("Ingrese cuanto aumentara su apuesta");//validar esto despues, numeros
   var acumuladorApuesta = parseInt(ingresada);//luego comparar con la apuesta minima
@@ -70,6 +74,7 @@ function AumentarApuesta() {
     alert("Dinero Insufiente");
   }
 }
+
 function Retirarse() {
   jugadores[turno].activo = false;
   AumentarTurno();
@@ -90,6 +95,7 @@ function GenerarRiver() {
   cartasMesa.push(RepartirCarta(mazoDeCartas));
   document.getElementById('carta5Mesa').src = "IMG/"+cartasMesa[4].path+".png";
 }
+
 function ValidarApuestaInicial() {
   var valorInicial = document.getElementById("txtApuestaInicial");
   valorInicial = parseInt(valorInicial.value);
@@ -98,13 +104,15 @@ function ValidarApuestaInicial() {
     MostrarRegistroDeJugadores();
     document.getElementById("lblApuestaMinima").innerHTML = "Por favor ingrese sus datos, recuerde que la apuesta mínima es de $"+apuestaMinima;
   }else {
-    alert("La apuesta mínima no debe sobrepasar los $1000");
+    alert("La apuesta mínima debe estar entre $1 y $1000");
   }
 }
+
 function RegistrarApuestaMinima(entradaApuestaInput) {
   var entradaApuesta = document.getElementById(entradaApuestaInput).value;
   apuestaMinima = parseInt(entradaApuesta);
 }
+
 function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, rbtnMujerInput, dineroJugadorInput, btnOut) {
   var idJugador = document.getElementById(idJugadorInput);
   var nombreJugador = document.getElementById(nombreJugadorInput);
@@ -148,6 +156,7 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
     alert("El número máximo de jugadores ya ha sido registrado, puede iniciar la partida");
   }
 }
+
 function ValidarParaIniciarJuego() {
   if(jugadores.length >= 0){
     MostrarAreaDeJuego();
