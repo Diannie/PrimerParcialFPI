@@ -13,7 +13,20 @@ function AumentarTurno() {
   turno++;
   if (jugadores.length < turno) {
     turno = 1;
-    ronda++;
+  }
+    var estadoRonda = false;
+    var apuestaBase = jugadores[0].apuesta;
+    for (var i = 0; i < jugadores.length; i++) {
+      if(jugadores[i].apuesta == apuestaBase){
+        estadoRonda = true;
+      }else {
+        estadoRonda = false;
+        break;
+      }
+    }
+    if (estadoRonda) {
+      ronda++;
+    }
     if (ronda == 2) {
       GenerarFlop();
     }else if(ronda == 3){
@@ -21,15 +34,13 @@ function AumentarTurno() {
     }else if(ronda == 4){
       GenerarRiver();
     }
-  }
   console.log("turno:"+turno);
   console.log("ronda:"+ronda);
   mostrarTurnoJugador(jugadores,turno);
-
 }
 
 function Paso() {
-  if(turno == 1 && ronda == 1){
+  if(ronda == 1){
     document.getElementById('btnPaso').disabled = true;
   }else {
     document.getElementById('btnPaso').disabled = false;
