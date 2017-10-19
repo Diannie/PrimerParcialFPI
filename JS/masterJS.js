@@ -42,8 +42,6 @@ function IgualarApuesta() {
   var diferencia = 0;
   if(jugadores[turno-1].dinero >= apuestaMinima){
     diferencia = apuestaMinima - jugadores[turno-1].apuesta;
-    alert(apuestaMinima);
-    alert(diferencia);
     jugadores[turno-1].apuesta += diferencia;
     jugadores[turno-1].dinero -= diferencia;
     dineroMesa += diferencia;
