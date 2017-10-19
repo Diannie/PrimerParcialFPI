@@ -1,0 +1,242 @@
+header {
+  width: 100%;
+  height: 90px;
+  background-color: #2a6592;
+  color: inherit;
+  text-align: center;
+  position: relative;
+}
+
+#headerimg {
+  display: inline-block;
+  height: 80px;
+  width: auto;
+  padding-top: 5px;
+  padding-right: 60px;
+}
+
+#inicioDeJuego{
+ background-image: url("../IMG/fondoincial.png");
+ color: inherit;
+ font-family: sans-serif;
+ position: fixed;
+ width: 100%;
+ height: 100%;
+}
+
+#inicioDeJuego h1{
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: #2a6592;
+}
+
+#inicioDeJuego h2{
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+#inicioDeJuego input[type=button]{
+  height: 50px;
+  width: 200px;
+  border-radius: 30px;
+  background-color: #2a6592;
+  color: white ;
+  font-size: 20px;
+}
+
+#inicioDeJuego input[type=text]{
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: white;
+  color: #2a6592 ;
+  font-size: 20px;
+  text-align: center;
+}
+
+#registroDeJugadores{
+  font-family: sans-serif;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-image: url("../IMG/fondocartass.png");
+}
+
+#registroDeJugadores legend{
+  font-size: 30px;
+  margin-left: 450px;
+  text-align: center;
+  font-weight: bold;
+  color: #2a6592;
+}
+
+#registroDeJugadores label{
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+#registroDeJugadores input[type=text]{
+  height: 20px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: white;
+  color: #2a6592 ;
+  font-size: 15px;
+  text-align: center;
+}
+
+#registroDeJugadores input[type=button]{
+  height: 30px;
+  width: 200px;
+  border-radius: 30px;
+  background-color: #2a6592;
+  color: white ;
+  font-size: 20px;
+}
+
+#registroDeJugadores input[type=number]{
+  height: 20px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: white;
+  color: #2a6592 ;
+  font-size: 15px;
+  text-align: center;
+}
+
+#registroDeJugadores input[type=radio]{
+  font-size: 30px;
+}
+
+#registroDeJugadores fieldset{
+  color: black;
+  padding-top:1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border: 20px;
+  align-self: center;
+}
+
+#areaDeJuego label{
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: darkgray;
+  text-align: center;
+}
+
+.BotonesJuego{
+  height: 50px;
+  width: 200px;
+  background-color: #2a6592;
+  color: white ;
+  border: 2px solid white;
+  width: 25%;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.areaDeJuego {
+  background-image: url("../IMG/fondomesa.png");
+  background-position: center center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.mesa{
+  background-image: url("../IMG/mesa.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0%;
+}
+
+.cartasEnMesa{
+  position: relative;
+  left: 0;
+  top: 45%;
+}
+
+.player{
+  position: relative;
+  background-color: darkgray;
+  width: 260px;
+  height: 25%;
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+#p1{
+  top: -15%;
+  left: 20%;
+}
+
+#p2{
+  top: -40%;
+  left: 40%;
+}
+
+#p3{
+  top: -65%;
+  left: 60%;
+}
+
+#p4{
+  top: -65%;
+  left: 80%;
+}
+
+#p5{
+  top: -60%;
+  left: 80%;
+}
+
+#p6{
+  top: -65%;
+  left: 60%;
+}
+
+#p7{
+  top: -90%;
+  left: 40%;
+}
+
+#p8{
+  top: -115%;
+  left: 20%;
+}
+
+#p9{
+  top: -160%;
+  left: 0%;
+}
+
+#p10{
+  top: -215%;
+  left: 0%;
+}
