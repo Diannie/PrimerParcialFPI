@@ -1,6 +1,24 @@
 var apuestaMinima = 1;
 var jugadores = [];
 var mazoDeCartas = Mazo();
+//variables para jugabilidad
+var dineroMesa = 0;
+var dealer = 1;
+var turno = 1;
+var ronda = 0;
+var pasoActivo = true;
+
+function Paso() {
+  turno++;
+  if (jugadores.length < turno) {
+    turno = 1;
+    ronda++;
+  }
+  console.log("turno:"+turno);
+  console.log("ronda:"+ronda);
+  mostrarTurnoJugador(jugadores,turno);
+
+}
 
 function ValidarApuestaInicial() {
   var valorInicial = document.getElementById("txtApuestaInicial");
@@ -65,6 +83,7 @@ function ValidarParaIniciarJuego() {
   if(jugadores.length >= 0){
     MostrarAreaDeJuego();
     mostrarJugadores(jugadores);
+    mostrarTurnoJugador(jugadores,turno);
   }else {
     alert("El mínimo de jugadores para iniciar la partida es 2");
   }
