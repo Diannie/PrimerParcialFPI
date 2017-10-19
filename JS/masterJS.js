@@ -38,25 +38,32 @@ function Paso() {
 
 }
 function IgualarApuesta() {
-  jugadores[turno-1].dinero += (-apuestaMinima);
-  alert(jugadores[turno-1].dinero);
-  dineroMesa += apuestaMinima;
-  document.getElementById('p'+(turno)+'Dinero').innerHTML = "Saldo: $"+jugadores[turno-1].dinero;
-  document.getElementById('p'+(turno)+'Apuesta').innerHTML = "Apuesta $"+jugadores[turno-1].apuesta;
+  var diferencia = 0;
+  if(jugadores[turno-1].dinero >= apuestaMinima){
+    jugadores[turno-1].apuesta += (apuestaMinima - jugadores[turno-1].apuesta);
+    jugadores[turno-1].dinero -= (apuestaMinima - jugadores[turno-1].apuesta);
+    dineroMesa += (apuestaMinima - jugadores[turno-1].apuesta);
+    document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+    AumentarTurno();
+  }else {
+    alert("Dinero Insufiente");
+  }
+}
+function IgualarApuestaInicial() {
+  jugadores[0].dinero = jugadores[0].dinero - apuestaMinima;
+  dineroMesa = apuestaMinima;
+  jugadores[0].apuesta = apuestaMinima;
   document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
   AumentarTurno();
 }
 function AumentarApuesta() {
-  var ingresada = prompt("Ingrese cuanto aumentara su apuesta");//validar esto despues
+  var ingresada = prompt("Ingrese cuanto aumentara su apuesta");//validar esto despues, numeros
   var acumuladorApuesta = parseInt(ingresada);//luego comparar con la apuesta minima
-  if(jugadores[turno-1].dinero > acumuladorApuesta){
-    jugadores[turno-1].apuesta+=acumuladorApuesta;//incrementar la apuesta del jugador
-    alert();
-    jugadores[turno-1].dinero += (-acumuladorApuesta);
-    alert(jugadores[turno-1].dinero);
+
+  if(jugadores[turno-1].dinero >= acumuladorApuesta){
+    jugadores[turno-1].dinero = jugadores[turno-1].dinero - acumuladorApuesta;
+    jugadores[turno-1].apuesta += acumuladorApuesta;//incrementar la apuesta del jugador
     dineroMesa += acumuladorApuesta;
-    document.getElementById('p'+(turno)+'Dinero').innerHTML = "Saldo: $"+jugadores[turno-1].dinero;
-    document.getElementById('p'+(turno)+'Apuesta').innerHTML = "Apuesta $"+jugadores[turno-1].apuesta;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     AumentarTurno();
   }else {
@@ -146,7 +153,7 @@ function ValidarParaIniciarJuego() {
     MostrarAreaDeJuego();
     mostrarJugadores(jugadores);
     mostrarTurnoJugador(jugadores,turno);
-    IgualarApuesta();
+    IgualarApuestaInicial();
   }else {
     alert("El mínimo de jugadores para iniciar la partida es 2");
   }

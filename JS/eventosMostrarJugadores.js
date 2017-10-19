@@ -590,6 +590,7 @@ function Posicionamiento(jugador, posicion) {
     document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
   }
   document.getElementById('p'+posicion+'Dinero').innerHTML = "Saldo: $"+jugador.dinero;
+  document.getElementById('p'+posicion+'Apuesta').innerHTML = "Apuesta: $"+jugador.apuesta;
 
 }
 function PosicionamientoConCarta(jugador, posicion) {
@@ -604,6 +605,7 @@ function PosicionamientoConCarta(jugador, posicion) {
   }
 
   document.getElementById('p'+posicion+'Dinero').innerHTML = "Saldo: $"+jugador.dinero;
+  document.getElementById('p'+posicion+'Apuesta').innerHTML = "Apuesta: $"+jugador.apuesta;
 }
 function PosicionamientoSinCarta(jugador, posicion) {
   document.getElementById('p'+posicion).style.visibility = 'visible';
@@ -616,4 +618,5 @@ function PosicionamientoSinCarta(jugador, posicion) {
     document.getElementById('p'+posicion+'Foto').src = "IMG/" + (jugador.sexo?"hombre.png":"mujer.png");
   }
   document.getElementById('p'+posicion+'Dinero').innerHTML = "Saldo: $"+jugador.dinero;
+  document.getElementById('p'+posicion+'Apuesta').innerHTML = "Apuesta: $"+jugador.apuesta;
 }
