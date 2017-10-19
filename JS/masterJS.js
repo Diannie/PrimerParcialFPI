@@ -62,7 +62,7 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
   }
 }
 function ValidarParaIniciarJuego() {
-  if(jugadores.length >= 2){
+  if(jugadores.length >= 0){
     MostrarAreaDeJuego();
     mostrarJugadores(jugadores);
   }else {

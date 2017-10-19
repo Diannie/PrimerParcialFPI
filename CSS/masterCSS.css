@@ -132,26 +132,24 @@ header {
 }
 
 .footer {
-  position: absolute;
-  right: 0;
+  position: fixed;
   bottom: 0;
-  left: 0;
+  left: 1;
   padding: 1rem;
   background-color: darkgray;
-  text-align: center;
+  border-radius: 10px;
 }
 
 .BotonesJuego{
-  height: 50px;
+  height: 30px;
   width: 200px;
   background-color: #2a6592;
   color: white ;
-  border: 2px solid white;
-  width: 25%;
-  padding: 16px 16px;
+  border: 1px solid white;
+  width: 55%;
   text-align: center;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
 }
