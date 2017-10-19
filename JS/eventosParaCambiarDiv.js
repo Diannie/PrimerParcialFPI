@@ -19,7 +19,7 @@ function MostrarAreaDeJuego() {
   document.getElementById('idheader').style.display = 'none';
   document.getElementById('registroDeJugadores').style.display = 'none';
   document.getElementById('areaDeJuego').style.display = 'block';
-  document.getElementById('footerBotones').style.display = 'none';
+  document.getElementById('footerBotones').style.display = 'block';
 }
 
 function mostrarJugadores(jugadores){
