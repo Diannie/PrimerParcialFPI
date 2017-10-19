@@ -62,96 +62,10 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
   }
 }
 function ValidarParaIniciarJuego() {
-  if(jugadores.length >= 0){
+  if(jugadores.length >= 2){
     MostrarAreaDeJuego();
+    mostrarJugadores(jugadores);
   }else {
     alert("El mínimo de jugadores para iniciar la partida es 2");
   }
-}
-
-function mostrarJugadores(){
-
-  if (jugadores.length == 2) {
-
-    document.getElementById('p2').style.visibility = 'visible';
-    document.getElementById('p2Nombre').innerHTML = jugadores[1].nombre;
-    document.getElementById('p2Foto').src = "IMG/" + (jugadores[1].sexo?"hombre.png":"mujer.png");
-    document.getElementById('p2Dinero').innerHTML = "Saldo: $"+jugadores[1].dinero;
-
-    document.getElementById('p7').style.visibility = 'visible';
-    document.getElementById('p7Nombre').innerHTML = jugadores[0].nombre;
-    document.getElementById('p7Foto').src = "IMG/" + (jugadores[0].sexo?"hombre.png":"mujer.png");
-    document.getElementById('p7Dinero').innerHTML = "Saldo: $"+jugadores[0].dinero;
-  }
-  else if (jugadores.length == 3) {
-    document.getElementById('p1').style.visibility = 'visible';
-
-    document.getElementById('p3').style.visibility = 'visible';
-    document.getElementById('p7').style.visibility = 'visible';
-  }
-  else if (jugadores.length == 4) {
-    document.getElementById('p1').style.visibility = 'visible';
-    document.getElementById('p3').style.visibility = 'visible';
-    document.getElementById('p8').style.visibility = 'visible';
-    document.getElementById('p6').style.visibility = 'visible';
-  }
-  else if (jugadores.length == 5) {
-    document.getElementById('p10').style.visibility = 'visible';
-    document.getElementById('p2').style.visibility = 'visible';
-    document.getElementById('p4').style.visibility = 'visible';
-    document.getElementById('p6').style.visibility = 'visible';
-    document.getElementById('p8').style.visibility = 'visible';
-  }
-  else if (jugadores.length == 6) {
-    document.getElementById('p1').style.visibility = 'visible';
-    document.getElementById('p2').style.visibility = 'visible';
-    document.getElementById('p3').style.visibility = 'visible';
-    document.getElementById('p6').style.visibility = 'visible';
-    document.getElementById('p7').style.visibility = 'visible';
-    document.getElementById('p8').style.visibility = 'visible';
-  }
-  else if (jugadores.length == 7) {
-    document.getElementById('p1').style.visibility = 'visible';
-    document.getElementById('p3').style.visibility = 'visible';
-    document.getElementById('p4').style.visibility = 'visible';
-    document.getElementById('p6').style.visibility = 'visible';
-    document.getElementById('p7').style.visibility = 'visible';
-    document.getElementById('p8').style.visibility = 'visible';
-    document.getElementById('p10').style.visibility = 'visible';
-  }
-  else if (jugadores.length == 8) {
-    document.getElementById('p1').style.visibility = 'visible';
-    document.getElementById('p3').style.visibility = 'visible';
-    document.getElementById('p4').style.visibility = 'visible';
-    document.getElementById('p5').style.visibility = 'visible';
-    document.getElementById('p6').style.visibility = 'visible';
-    document.getElementById('p8').style.visibility = 'visible';
-    document.getElementById('p9').style.visibility = 'visible';
-    document.getElementById('p10').style.visibility = 'visible';
-  }
-  else if (jugadores.length == 9) {
-    document.getElementById('p1').style.visibility = 'visible';
-    document.getElementById('p2').style.visibility = 'visible';
-    document.getElementById('p3').style.visibility = 'visible';
-    document.getElementById('p4').style.visibility = 'visible';
-    document.getElementById('p5').style.visibility = 'visible';
-    document.getElementById('p6').style.visibility = 'visible';
-    document.getElementById('p8').style.visibility = 'visible';
-    document.getElementById('p9').style.visibility = 'visible';
-    document.getElementById('p10').style.visibility = 'visible';
-  }
-  else{
-    document.getElementById('p1').style.visibility = 'visible';
-    document.getElementById('p2').style.visibility = 'visible';
-    document.getElementById('p3').style.visibility = 'visible';
-    document.getElementById('p4').style.visibility = 'visible';
-    document.getElementById('p5').style.visibility = 'visible';
-    document.getElementById('p6').style.visibility = 'visible';
-    document.getElementById('p8').style.visibility = 'visible';
-    document.getElementById('p9').style.visibility = 'visible';
-    document.getElementById('p10').style.visibility = 'visible';
-    document.getElementById('p7').style.visibility = 'visible';
-  }
-
-
 }

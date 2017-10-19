@@ -30,14 +30,14 @@
         <label for="idJugador"> Número de Jugador: </label>
         <input type="number" id="idJugador" value="1" disabled> <br><br>
         <label for="nombreJugador"> Nombre: </label>
-        <input type="text" id="nombreJugador" onkeypress="return soloLetras(event)" placeholder="Ingresar nombre"><br><br>
+        <input type="text" id="nombreJugador" onkeypress="return soloLetras(event)" placeholder="Ingresar nombre" maxlength="10"><br><br>
         <label for="sexoJugador"> Género: </label>
         <input type="radio" name="sexo" id="rbtnHombre" checked>Masculino
         <input type="radio" name="sexo" id="rbtnMujer">Femenino<br><br>
         <label for="dineroInicial"> Dinero para jugar: </label>
-        <input type="number" id="dineroInicial" min="1" onkeypress="return SoloNumeros(event)" placeholder="Dinero para apostar"><br><br>
+        <input type="text" id="dineroInicial" onkeypress="return SoloNumeros(event)" placeholder="Dinero para apostar" maxlength="7"><br><br>
         <input type="button" id="btnRegistrar" value="Registrar Jugador" onclick="RegistrarJugador('idJugador','nombreJugador','rbtnHombre','rbtnMujer','dineroInicial','btnRegistrar')">
-        <input type="button" id="btnIniciar" value="Iniciar Juego" onclick="ValidarParaIniciarJuego();mostrarJugadores();">
+        <input type="button" id="btnIniciar" value="Iniciar Juego" onclick="ValidarParaIniciarJuego()">
     </fieldset>
     </div>
 
