@@ -229,32 +229,280 @@ if (idJugador == 5) {
     PosicionamientoSinCarta(jugadores[6], 9);
     PosicionamientoSinCarta(jugadores[7], 10);
   }
-
+    if (idJugador == 4) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 3);
+    PosicionamientoSinCarta(jugadores[2], 4);
+    PosicionamientoConCarta(jugadores[3], 5);
+    PosicionamientoSinCarta(jugadores[4], 6);
+    PosicionamientoSinCarta(jugadores[5], 8);
+    PosicionamientoSinCarta(jugadores[6], 9);
+    PosicionamientoSinCarta(jugadores[7], 10);
+  }
+    if (idJugador == 5) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 3);
+    PosicionamientoSinCarta(jugadores[2], 4);
+    PosicionamientoSinCarta(jugadores[3], 5);
+    PosicionamientoConCarta(jugadores[4], 6);
+    PosicionamientoSinCarta(jugadores[5], 8);
+    PosicionamientoSinCarta(jugadores[6], 9);
+    PosicionamientoSinCarta(jugadores[7], 10);
+  }
+    if (idJugador == 6) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 3);
+    PosicionamientoSinCarta(jugadores[2], 4);
+    PosicionamientoSinCarta(jugadores[3], 5);
+    PosicionamientoSinCarta(jugadores[4], 6);
+    PosicionamientoConCarta(jugadores[5], 8);
+    PosicionamientoSinCarta(jugadores[6], 9);
+    PosicionamientoSinCarta(jugadores[7], 10);
+  }
+    if (idJugador == 7) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 3);
+    PosicionamientoSinCarta(jugadores[2], 4);
+    PosicionamientoSinCarta(jugadores[3], 5);
+    PosicionamientoSinCarta(jugadores[4], 6);
+    PosicionamientoSinCarta(jugadores[5], 8);
+    PosicionamientoConCarta(jugadores[6], 9);
+    PosicionamientoSinCarta(jugadores[7], 10);
+  }
+    if (idJugador == 8) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 3);
+    PosicionamientoSinCarta(jugadores[2], 4);
+    PosicionamientoSinCarta(jugadores[3], 5);
+    PosicionamientoSinCarta(jugadores[4], 6);
+    PosicionamientoSinCarta(jugadores[5], 8);
+    PosicionamientoSinCarta(jugadores[6], 9);
+    PosicionamientoConCarta(jugadores[7], 10);
+  }
   }
   else if (jugadores.length == 9) {
-    Posicionamiento(jugadores[8], 1);
-    Posicionamiento(jugadores[7], 2);
-    Posicionamiento(jugadores[6], 3);
-    Posicionamiento(jugadores[5], 4);
-    Posicionamiento(jugadores[4], 5);
-    Posicionamiento(jugadores[3], 6);
-    Posicionamiento(jugadores[2], 8);
-    Posicionamiento(jugadores[1], 9);
-    Posicionamiento(jugadores[0], 10);
+    if (idJugador == 1) {
+    PosicionamientoConCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 2) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoConCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 3) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoConCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 4) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoConCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 5) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoConCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 6) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoConCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 7) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoConCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 8) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoConCarta(jugadores[7], 9);
+    PosicionamientoSinCarta(jugadores[8], 10);
+  }
+    if (idJugador == 9) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 8);
+    PosicionamientoSinCarta(jugadores[7], 9);
+    PosicionamientoConCarta(jugadores[8], 10);
+  }
   }
   else{
-    Posicionamiento(jugadores[9], 1);
-    Posicionamiento(jugadores[8], 2);
-    Posicionamiento(jugadores[7], 3);
-    Posicionamiento(jugadores[6], 4);
-    Posicionamiento(jugadores[5], 5);
-    Posicionamiento(jugadores[4], 6);
-    Posicionamiento(jugadores[3], 8);
-    Posicionamiento(jugadores[2], 9);
-    Posicionamiento(jugadores[1], 10);
-    Posicionamiento(jugadores[0], 7);
+    if (idJugador == 1) {
+    PosicionamientoConCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
   }
-
+    if (idJugador == 2) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoConCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 3) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoConCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 4) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoConCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 5) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoConCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 6) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoConCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 7) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoConCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 8) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoConCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 9) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoConCarta(jugadores[8], 9);
+    PosicionamientoSinCarta(jugadores[9], 10);
+  }
+    if (idJugador == 10) {
+    PosicionamientoSinCarta(jugadores[0], 1);
+    PosicionamientoSinCarta(jugadores[1], 2);
+    PosicionamientoSinCarta(jugadores[2], 3);
+    PosicionamientoSinCarta(jugadores[3], 4);
+    PosicionamientoSinCarta(jugadores[4], 5);
+    PosicionamientoSinCarta(jugadores[5], 6);
+    PosicionamientoSinCarta(jugadores[6], 7);
+    PosicionamientoSinCarta(jugadores[7], 8);
+    PosicionamientoSinCarta(jugadores[8], 9);
+    PosicionamientoConCarta(jugadores[9], 10);
+  }
+  }
 }
 
 function mostrarJugadores(jugadores){
