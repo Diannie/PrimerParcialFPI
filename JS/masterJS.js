@@ -61,24 +61,17 @@ function IgualarApuestaInicial() {
 }
 
 function AumentarApuesta() {
+  var diferencia = 0;
+  diferencia = apuestaMinima - jugadores[turno-1].apuesta;
   var ingresada = prompt("Ingrese cuanto aumentara su apuesta");//validar esto despues, numeros
   var ingresadaInt = parseInt(ingresada);//luego comparar con la apuesta minima
   if(jugadores[turno-1].dinero >= ingresadaInt){
-    if(ronda == 1){
-      jugadores[turno-1].dinero = jugadores[turno-1].dinero - (ingresadaInt+apuestaMinima);
-      jugadores[turno-1].apuesta += (ingresadaInt+apuestaMinima);//incrementar la apuesta del jugador
-      dineroMesa += ingresadaInt;
-      apuestaMinima+=ingresadaInt;
-      document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
-      AumentarTurno();
-    }else{
-    jugadores[turno-1].dinero = jugadores[turno-1].dinero - ingresadaInt;
-    jugadores[turno-1].apuesta += ingresadaInt;//incrementar la apuesta del jugador
-    dineroMesa += ingresadaInt;
+    jugadores[turno-1].dinero = jugadores[turno-1].dinero - (ingresadaInt+diferencia);
+    jugadores[turno-1].apuesta += (ingresadaInt+diferencia);//incrementar la apuesta del jugador
+    dineroMesa += (ingresadaInt+diferencia);
     apuestaMinima+=ingresadaInt;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     AumentarTurno();
-    }
   }else {
     alert("Dinero Insufiente");
   }
