@@ -1,8 +1,15 @@
+function Ganador(jugadores, allBestCarts) {
+  var Alturas = [];
+  for (var j = 0; j < jugadores.length; j++) {
+    Alturas.push(AlturaCombinacion(allBestCarts[j]));
+  }
+
+}
 function soloJugadoresActivos(jugadores) {
   var limite = jugadores.length;
   var players = [];
   for (var i = 0; i < limite; i++) {
-    if (jugadores[i].activo) {
+    if (jugadores[i].activo ==true || (jugadores[i].activo == false && jugadores[i].dinero == 0)) {
       players.push(jugadores[i]);
     }
   }
