@@ -71,8 +71,9 @@ function AumentarTurno() {
         mensaje += " su altura es :"+AlturaCombinacion(allBest[j]);
         mensaje += "\n";
       }
+      document.getElementById('areaGanador').innerHTML = 'El ganador es: ' + Ganador(playersActivos,allBest).nombre;
+      document.getElementById('areaGanador').style.display = 'block';
       console.log(mensaje);
-      alert("El ganados es "+Ganador(playersActivos,allBest).nombre);
       for (var i = 1; i <= jugadores.length; i++) {
         mostrarAllCartas(jugadores, i);
       }

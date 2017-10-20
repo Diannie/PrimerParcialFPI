@@ -4,6 +4,7 @@ function MostrarInicionDeJuego() {
   document.getElementById('registroDeJugadores').style.display = 'none';
   document.getElementById('areaDeJuego').style.display = 'none';
   document.getElementById('footerBotones').style.display = 'none';
+  document.getElementById('areaGanador').style.display = 'none';
 }
 
 function MostrarRegistroDeJugadores() {
@@ -12,6 +13,7 @@ function MostrarRegistroDeJugadores() {
   document.getElementById('registroDeJugadores').style.display = 'block';
   document.getElementById('areaDeJuego').style.display = 'none';
   document.getElementById('footerBotones').style.display = 'none';
+  document.getElementById('areaGanador').style.display = 'none';
 }
 
 function MostrarAreaDeJuego() {
@@ -20,4 +22,5 @@ function MostrarAreaDeJuego() {
   document.getElementById('registroDeJugadores').style.display = 'none';
   document.getElementById('areaDeJuego').style.display = 'block';
   document.getElementById('footerBotones').style.display = 'block';
+  document.getElementById('areaGanador').style.display = 'none';
 }
