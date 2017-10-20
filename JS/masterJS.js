@@ -14,6 +14,7 @@ function AumentarTurno() {
   if (jugadores.length < turno) {
     turno = 1;
   }
+  if (jugadores[turno-1].activo == true) {
     var estadoRonda = false;
     var apuestaBase = jugadores[0].apuesta;
     for (var i = 0; i < jugadores.length; i++) {
@@ -34,6 +35,9 @@ function AumentarTurno() {
     }else if(ronda == 4){
       GenerarRiver();
     }
+  }else {
+    turno++;
+  }
   console.log("turno:"+turno);
   console.log("ronda:"+ronda);
   mostrarTurnoJugador(jugadores,turno);
