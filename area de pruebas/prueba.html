@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="button" id="btn" value="check" onclick="Combinaciones(cartasEnMesa, jugadores)">
+    <script type="text/javascript" src="Ganador.js"></script>
+    <script type="text/javascript">
+    var jugadores = [{id: 1, nombre: "Juan", sexo: true, cartas: [{valor: 5, palo: 1, path: "5.1"},{valor: 11, palo: 1, path: "11.1"}], dinero: 1000},
+                    {id: 2, nombre: "Luis", sexo: true, cartas: [{valor: 9, palo: 2, path: "9.2"},{valor: 11, palo: 2, path: "9.4"}], dinero: 2000},
+                    {id: 3, nombre: "Diana", sexo: false, cartas: [{valor: 13, palo: 4, path: "13.4"},{valor: 2, palo: 1, path: "2.1"}], dinero: 4000},
+                    {id: 4, nombre: "Andrea", sexo: false, cartas: [{valor: 6, palo: 1, path: "6.1"},{valor: 5, palo: 3, path: "5.3"}], dinero: 5000}];
+
+
+    var cartasEnMesa = [
+    {valor: 13, palo: 1, path: "13.1"},
+    {valor: 12, palo: 1, path: "12.1"},
+    {valor: 11, palo: 1, path: "11.1"},
+    {valor: 10, palo: 1, path: "10.1"},
+    {valor: 9, palo: 1, path: "9.1"}];
+
+    var player = 1;//Juan
+    var combPlayer = CombinacionesDelJugador(cartasEnMesa,jugadores[player]);
+    var mejorC = MejorCombinacion(combPlayer);
+
+
+    alert(AlturaCombinacion(cartasEnMesa));
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
