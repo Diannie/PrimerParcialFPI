@@ -620,3 +620,81 @@ function PosicionamientoSinCarta(jugador, posicion) {
   document.getElementById('p'+posicion+'Dinero').innerHTML = "Saldo: $"+jugador.dinero;
   document.getElementById('p'+posicion+'Apuesta').innerHTML = "Apuesta: $"+jugador.apuesta;
 }
+
+function mostrarAllCartas(jugadores, idJugador) {
+  for (var i = 0; i < jugadores.length; i++) {
+    if (idJugador == 2) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+    }
+    else if (idJugador == 3) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+    }
+    else if (idJugador == 4) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+      PosicionamientoConCarta(jugadores[3], 4);
+    }
+    else if (idJugador == 5) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+      PosicionamientoConCarta(jugadores[3], 4);
+      PosicionamientoConCarta(jugadores[4], 5);
+    }
+    else if (idJugador == 6) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+      PosicionamientoConCarta(jugadores[3], 4);
+      PosicionamientoConCarta(jugadores[4], 5);
+      PosicionamientoConCarta(jugadores[5], 6);
+    }
+    else if (idJugador == 7) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+      PosicionamientoConCarta(jugadores[3], 4);
+      PosicionamientoConCarta(jugadores[4], 5);
+      PosicionamientoConCarta(jugadores[5], 6);
+      PosicionamientoConCarta(jugadores[6], 7);
+    }
+    else if (idJugador == 8) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+      PosicionamientoConCarta(jugadores[3], 4);
+      PosicionamientoConCarta(jugadores[4], 5);
+      PosicionamientoConCarta(jugadores[5], 6);
+      PosicionamientoConCarta(jugadores[6], 7);
+      PosicionamientoConCarta(jugadores[7], 8);
+    }
+    else if (idJugador == 9) {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+      PosicionamientoConCarta(jugadores[3], 4);
+      PosicionamientoConCarta(jugadores[4], 5);
+      PosicionamientoConCarta(jugadores[5], 6);
+      PosicionamientoConCarta(jugadores[6], 7);
+      PosicionamientoConCarta(jugadores[7], 8);
+      PosicionamientoConCarta(jugadores[8], 9);
+    }
+    else {
+      PosicionamientoConCarta(jugadores[0], 1);
+      PosicionamientoConCarta(jugadores[1], 2);
+      PosicionamientoConCarta(jugadores[2], 3);
+      PosicionamientoConCarta(jugadores[3], 4);
+      PosicionamientoConCarta(jugadores[4], 5);
+      PosicionamientoConCarta(jugadores[5], 6);
+      PosicionamientoConCarta(jugadores[6], 7);
+      PosicionamientoConCarta(jugadores[7], 8);
+      PosicionamientoConCarta(jugadores[8], 9);
+      PosicionamientoConCarta(jugadores[9], 10);
+    }
+  }
+
+}

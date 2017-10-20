@@ -58,6 +58,9 @@ function AumentarTurno() {
     else if (ronda > 4) {
       document.getElementById(footerBotones).style.display = 'none';
       document.getElementById('btnPaso').disabled = true;
+      for (var i = 0; i < jugadores.length; i++) {
+        mostrarAllCartas(i, i+1);
+      }
     }
 
   }else{
