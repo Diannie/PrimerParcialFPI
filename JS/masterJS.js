@@ -166,7 +166,7 @@ function Retirarse() {
   }
 
   if(jugadoresActivos.length==1){
-    //alert("El ganador por default es"+jugadores[ganadorPorDefault].nombre);
+    alert("El ganador por default es"+jugadores[jugadoresActivos[0]-1].nombre);
   }
   numeroPasos = jugadoresActivos.length;
   AumentarTurno();
