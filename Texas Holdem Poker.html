@@ -19,7 +19,7 @@
     <div class="inicioDeJuego" id="inicioDeJuego">
       <h1>Bienvenido</h1>
       <br><br><h2>Primero ingrese la apuesta mínima</h2><br><br>
-      <h2>$<input type="text" id="txtApuestaInicial" value="1" onkeypress="return SoloNumeros(event)" maxlength="4" placeholder="$"></h2><br>
+      <h2>$<input type="text" id="txtApuestaInicial" value="1" onkeypress="return SoloNumeros(event)" maxlength="4" placeholder="Apuesta mínima"></h2><br>
       <h2><input type="button" id="btnJuego" class="button" value="Iniciar Partida" onclick="ValidarApuestaInicial()"></h2>
     </div>
 
@@ -31,7 +31,7 @@
         <label> Número de Jugador: </label>
         <input type="number" id="idJugador" value="1" disabled> <br><br>
         <label> Nombre: </label>
-        <input type="text" id="nombreJugador" onkeypress="return soloLetras(event)" placeholder="Ingresar nombre" maxlength="10"><br><br>
+        <input type="text" id="nombreJugador" onkeypress="return soloLetras(event)" placeholder="Ingresar nombre" maxlength="10" autofocus><br><br>
         <label> Género: </label>
         <input type="radio" name="sexo" id="rbtnHombre" checked>Masculino
         <input type="radio" name="sexo" id="rbtnMujer">Femenino<br><br>

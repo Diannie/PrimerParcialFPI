@@ -8,10 +8,12 @@ function Ganador(jugadores, allBestCarts) {
 
   for (var j = 0; j < jugadores.length; j++) {
     if (alturaMax == AlturaCombinacion(allBestCarts[j])) {
+      document.getElementById('areaGanador').innerHTML = 'El ganador es: ' + jugadores[j].nombre + ' con una combinación de: ' + DecirCualAltura(alturaMax);
       return jugadores[j];
     }
   }
-  return jugadores[0];//por si no fuciona devolver el primer jugador
+  document.getElementById('areaGanador').innerHTML = 'El ganador es: ' + jugadores[0].nombre + ' con una combinación de: ' + DecirCualAltura(alturaMax);
+  return jugadores[0]; //por si no fuciona devuelve el primer jugador
 }
 function soloJugadoresActivos(jugadores) {
   var limite = jugadores.length;
@@ -23,7 +25,7 @@ function soloJugadoresActivos(jugadores) {
   }
   return players;
 }
-function MejoresCombinacionesJugadores(tableCarts, players) {//devolver en un arreglo todos jugadores con sus mejores combionaciones
+function MejoresCombinacionesJugadores(tableCarts, players) {//devuelve en un arreglo todos jugadores con sus mejores combinaciones
   var MejoresCombinaciones = [];
   var allCombinaciones = GenerarTodasCombinaciones(tableCarts,players);
   for (var j = 0; j < players.length; j++) {
@@ -272,44 +274,34 @@ function DecirCualAltura(altura){
   switch (altura) {
     case 1:
       alturaTxt = "Carta Alta";
-      return alturaTxt;
       break;
     case 2:
       alturaTxt = "Pareja";
-        return alturaTxt;
         break;
     case 3:
         alturaTxt = "Doble Pareja";
-        return alturaTxt;
         break;
     case 4:
         alturaTxt = "Trio";
-          return alturaTxt;
           break;
     case 5:
         alturaTxt = "Escalera";
-        return alturaTxt;
         break;
     case 6:
         alturaTxt = "Color";
-        return alturaTxt;
         break;
     case 7:
         alturaTxt = "Full House";
-        return alturaTxt;
         break;
     case 8:
         alturaTxt = "Poker";
-        return alturaTxt;
         break;
     case 9:
         alturaTxt = "Escalera Color";
-        return alturaTxt;
         break;
   case 10:
         alturaTxt = "Escalera Real";
-        return alturaTxt;
         break;
   }
-
+  return alturaTxt;
 }
