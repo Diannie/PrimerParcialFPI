@@ -35,8 +35,18 @@ function AumentarTurno() {
     }else if(ronda == 4){
       GenerarRiver();
     }
-  }else {
-    turno++;
+  }else{
+    for (var i = 0; i < jugadores.length; i++) {
+      if (jugadores[turno-1].activo) {
+                break;
+      }else {
+        turno++;
+        if (jugadores.length < turno) {
+          turno = 1;
+        }
+        mostrarTurnoJugador(jugadores,turno);
+      }
+    }
   }
   console.log("turno:"+turno);
   console.log("ronda:"+ronda);
