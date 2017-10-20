@@ -60,11 +60,6 @@ function AumentarTurno() {
     else if (ronda > 4) {
       document.getElementById('footerBotones').style.display = 'none';
       document.getElementById('btnPaso').disabled = true;
-<<<<<<< HEAD
-      for (var i = 0; i < jugadores.length; i++) {
-        mostrarAllCartas(i, i+1);
-      }
-=======
       var playersActivos = soloJugadoresActivos(jugadores);
       var allBest = MejoresCombinacionesJugadores(cartasMesa,playersActivos);
       var mensaje = "";
@@ -78,7 +73,6 @@ function AumentarTurno() {
       }
       console.log(mensaje);
       alert("El ganados es "+Ganador(playersActivos,allBest).nombre);
->>>>>>> 1649d035aa5d770dc3b959923bcae7c7cc491725
     }
 
   }else{
