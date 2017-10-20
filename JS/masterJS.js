@@ -10,6 +10,7 @@ var activos = 0;
 var ganadorPorDefault;
 var jugadoresActivos = [];
 var numeroPasos = 0;
+var retirado=false;
 
 function AumentarTurno() {
   turno++;
@@ -27,7 +28,7 @@ function AumentarTurno() {
         break;
       }
     }
-    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length)) {
+    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) && retirado == false) {
       if (numeroPasos == 0) {
           numeroPasos = jugadoresActivos.length;
       }
@@ -62,11 +63,13 @@ function AumentarTurno() {
   }
   console.log("turno:"+turno);
   console.log("ronda:"+ronda);
+  console.log(jugadoresActivos[0] + "" + jugadoresActivos[1] + "" + jugadoresActivos[2]);
   mostrarTurnoJugador(jugadores,turno);
 }
 
 function Paso() {
   numeroPasos --;
+  retirado = false;
   AumentarTurno();
 
 }
@@ -80,6 +83,7 @@ function IgualarApuesta() {
     dineroMesa += diferencia;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     numeroPasos = jugadoresActivos.length;
+    retirado = false;
     AumentarTurno();
   }else {
     alert("Dinero Insufiente");
@@ -119,15 +123,16 @@ function AumentarApuesta() {
 function Retirarse() {
   jugadores[turno-1].activo = false;
   jugadores[turno-1].sexo = undefined;
-  jugadoresActivos.splice(turno-1,1);
-  for (var i = 0; i < jugadores.length; i++) {
-    if(jugadores[i].activo == true){
-      activos++;
-      ganadorPorDefault = i;
+  retirado = true;
+
+  for (var i = 0; i < jugadoresActivos.length; i++) {
+    if (turno == jugadoresActivos[i]) {
+      jugadoresActivos.splice(i,1);
     }
   }
-  if(activos==1){
-    alert("El ganador por default es"+jugadores[ganadorPorDefault].nombre);
+
+  if(jugadoresActivos.length==1){
+    //alert("El ganador por default es"+jugadores[ganadorPorDefault].nombre);
   }
   numeroPasos = jugadoresActivos.length;
   AumentarTurno();
@@ -140,7 +145,7 @@ function apostarTodo(){
   dineroMesa += (jugadores[turno-1].dinero);
 
     if (jugadores[turno-1].dinero >= diferencia) {
-      apuestaMinima+=jugadores[turno-1].apuesta;
+      apuestaMinima=jugadores[turno-1].apuesta;
     }
     jugadores[turno-1].dinero = 0;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
