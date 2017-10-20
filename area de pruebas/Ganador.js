@@ -1,3 +1,4 @@
+
 function AlturaCombinacion(cartasDesorden) { //devuelve la mano de poker de las combinaciones posibles
   var altura = 0;
   var cartasOrdenadas = OrdenarCombinacion(cartasDesorden);
@@ -32,12 +33,12 @@ function AlturaCombinacion(cartasDesorden) { //devuelve la mano de poker de las 
       altura = 4;
     }
     //DoblePareja: Dos parejas
-    else if (true) {
-
+    else if (DoblePareja(cartasOrdenadas)) {
+      altura = 3;
     }
     //Pareja: Una Pareja
-    else if (true) {
-
+    else if (Pareja(cartasOrdenadas)) {
+      altura = 2;
     }
     //CartaAlta: Si no se cumple ninguno anterior, se toma la carta más alta
     else {
@@ -46,7 +47,6 @@ function AlturaCombinacion(cartasDesorden) { //devuelve la mano de poker de las 
   }
   return altura;
 }
-
 function Combinaciones(cartasEnMesa, jugadores) {
   var combinacionesPosibles = [];
   var limite = jugadores.length;
@@ -169,6 +169,44 @@ function Trio(Combinacion) {
   }
   return false;
 
+}
+function DoblePareja(Combinacion) {
+  var limite = Combinacion.length;
+  var contadorSobra = 0;
+  var contadorDos1 = 0;
+  var contadorDos2 = 0;
+  var valorDos1 = Combinacion[1].valor;
+  var valorDos2 = Combinacion[3].valor;
+
+  for (var icarta = 0; icarta < limite; icarta++) {
+    if(Combinacion[icarta].valor == valorDos1){
+      contadorDos1++;
+    }else if(Combinacion[icarta].valor == valorDos2){
+      contadorDos2++;
+    }else {
+      contadorSobra++;
+    }
+  }
+  if (contadorSobra == 1 && contadorDos1 == 2 && contadorDos2 == 2) {
+    return true;
+  }
+  return false;
+}
+function Pareja(Combinacion) {
+  var limite = Combinacion.length;
+  var contadorPareja = 0;
+  for (var i = 0; i < limite; i++) {
+    var valorPareja = Combinacion[i].valor;
+    for (var icarta = 0; icarta < limite; icarta++) {
+      if(Combinacion[icarta].valor == valorPareja){
+        contadorPareja++;
+        if (contadorPareja == 2) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
 }
 function MismoPalo(Combinacion) {
   var limite = Combinacion.length;
