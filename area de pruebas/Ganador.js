@@ -1,16 +1,34 @@
-function MejorCombinancion(CombinacionesDelJugador) {//devuelve la mejor combinacion del jugador de todas las ingresadas
-  var limite = CombinacionesDelJugador.length;
+function MejoresCombinacionesJugadores(tableCarts, players) {//devolver en un arreglo todos jugadores con sus mejores combionaciones
+
+}
+function MejorCombinacion(todasCombinaciones) {//devuelve la mejor combinacion del jugador de todas las ingresadas
+  var limite = todasCombinaciones.length;
   var altura = 1;
-  var mejorIteracion;
+  var mejorIteracion = 0;
   for (var i = 0; i < limite; i++) {
-    if(AlturaCombinacion(CombinacionesDelJugador[i]) > altura){
-      altura = AlturaCombinacion(CombinacionesDelJugador[i]);
-      mejorIteracion=i;
+    if(AlturaCombinacion(todasCombinaciones[i]) > altura){
+      altura = AlturaCombinacion(todasCombinaciones[i]);
+      mejorIteracion = i;
     }
   }
-  return CombinacionesDelJugador[mejorIteracion];
+  return todasCombinaciones[mejorIteracion];
 }
-function AlturaCombinacion(cartasDesorden) { //devuelve la mano de poker de las combinaciones posibles
+
+function CombinacionesDelJugador(cartasEnMesa, jugador) {
+  var combinacionesDelJugador =[];
+  combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[1], cartasEnMesa[2], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[1], cartasEnMesa[2], cartasEnMesa[3], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[2], cartasEnMesa[3], cartasEnMesa[4], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[2], cartasEnMesa[4], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[1], cartasEnMesa[3], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[1], cartasEnMesa[4], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[3], cartasEnMesa[4], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[1], cartasEnMesa[2], cartasEnMesa[4], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[2], cartasEnMesa[3], jugador.cartas[0], jugador.cartas[1]]);
+  combinacionesDelJugador.push([cartasEnMesa[1], cartasEnMesa[3], cartasEnMesa[4], jugador.cartas[0], jugador.cartas[1]]);
+  return combinacionesDelJugador;
+}
+function AlturaCombinacion(cartasDesorden) {//devuelve la mano de poker de las combinaciones posibles
   var altura = 1;
   var cartasOrdenadas = OrdenarCombinacion(cartasDesorden);
   if(MismoPalo(cartasOrdenadas)){
@@ -58,26 +76,6 @@ function AlturaCombinacion(cartasDesorden) { //devuelve la mano de poker de las 
   }
   return altura;
 }
-function Combinaciones(cartasEnMesa, jugadores) {
-  var combinacionesPosibles = [];
-  var limite = jugadores.length;
-  for (var i = 0; i < limite; i++) {
-    var combinacionesDelJugador =[];
-    combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[1], cartasEnMesa[2], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[1], cartasEnMesa[2], cartasEnMesa[3], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[2], cartasEnMesa[3], cartasEnMesa[4], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[2], cartasEnMesa[4], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[1], cartasEnMesa[3], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[1], cartasEnMesa[4], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[3], cartasEnMesa[4], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[1], cartasEnMesa[2], cartasEnMesa[4], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[2], cartasEnMesa[3], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesDelJugador.push([cartasEnMesa[1], cartasEnMesa[3], cartasEnMesa[4], jugadores[i].cartas[0], jugadores[i].cartas[1]]);
-    combinacionesPosibles.push(combinacionesDelJugador);
-  }
-  return combinacionesPosibles;
-}
-
 function OrdenarCombinacion(combinacion) {
   combinacion.sort(function(a, b){return a.palo-b.palo});
   combinacion.sort(function(a, b){return a.valor-b.valor});
@@ -92,7 +90,6 @@ function EscaleraReal(cartasIngresadas) {
   var patt = /9,10,11,12,13,/g; //EscaleraReal: A,K,Q,J,10 del mismo palo
   return patt.test(str);
 }
-
 function EscaleraColor(cartasIngresadas) {
   var str = "";
   var limite = cartasIngresadas.length;
@@ -110,7 +107,6 @@ function EscaleraColor(cartasIngresadas) {
   }
   return false;
 }
-
 function Poker(Combinacion) {
   var limite = Combinacion.length;
   var contador = 0;
@@ -125,7 +121,6 @@ function Poker(Combinacion) {
   }
   return false;
 }
-
 function FullHouse(Combinacion) {
   var limite = Combinacion.length;
   var contadorTres = 0;
@@ -179,7 +174,6 @@ function Trio(Combinacion) {
     return true;
   }
   return false;
-
 }
 function DoblePareja(Combinacion) {
   var limite = Combinacion.length;
@@ -206,16 +200,17 @@ function DoblePareja(Combinacion) {
 function Pareja(Combinacion) {
   var limite = Combinacion.length;
   var contadorPareja = 0;
-  for (var i = 0; i < limite; i++) {
-    var valorPareja = Combinacion[i].valor;
-    for (var icarta = 0; icarta < limite; icarta++) {
-      if(Combinacion[icarta].valor == valorPareja){
+  for (var v = 0; v < limite; v++) {
+    var valor = Combinacion[v].valor;
+    for (var i = 0; i < limite; i++) {
+      if(Combinacion[i].valor == valor){
         contadorPareja++;
-        if (contadorPareja == 2) {
+        if(contadorPareja==2){
           return true;
         }
       }
     }
+    contadorPareja=0;
   }
   return false;
 }
@@ -224,7 +219,7 @@ function MismoPalo(Combinacion) {
   var contador = 0;
   var palo = Combinacion[0].palo;
   for (var icarta = 0; icarta < limite; icarta++) {
-    if(Combinacion[icarta] == palo){
+    if(Combinacion[icarta].palo == palo){
       contador++;
     }
   }
