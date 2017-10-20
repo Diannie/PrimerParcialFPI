@@ -1,6 +1,7 @@
-function AlturaCombinacion(cartasOrdenadas) { //devuelve la mano de poker de las combinaciones posibles
+function AlturaCombinacion(cartasDesorden) { //devuelve la mano de poker de las combinaciones posibles
   var altura = 0;
-  if(MismoPalo(cartasOrdenadas) == true){
+  var cartasOrdenadas = OrdenarCombinacion(cartasDesorden);
+  if(MismoPalo(cartasOrdenadas)){
     //EscaleraReal: A,K,Q,J,10 del mismo palo
     if (EscaleraReal(cartasOrdenadas)) {
       altura = 10;
@@ -23,11 +24,12 @@ function AlturaCombinacion(cartasOrdenadas) { //devuelve la mano de poker de las
       altura = 7;
     }
     //Escalera: A,2,3,4,5 - 2,3,4,5,6 - 3,4,5,6,7 - 4,5,6,7,8 - 5,6,7,8,9 - 6,7,8,9,10 - 7,8,9,10,J - 8,9,10,J,Q - 9,10,J,Q,K - 10,J,Q,K,A
-    else if (true) {
+    else if (Escalera(cartasOrdenadas)) {
+      altura = 5;
     }
     //Trio: Tres cartas iguales
-    else if (true) {
-
+    else if (Trio(cartasOrdenadas)) {
+      altura = 4;
     }
     //DoblePareja: Dos parejas
     else if (true) {
@@ -39,9 +41,10 @@ function AlturaCombinacion(cartasOrdenadas) { //devuelve la mano de poker de las
     }
     //CartaAlta: Si no se cumple ninguno anterior, se toma la carta más alta
     else {
-
+      altura = 1;
     }
   }
+  return altura;
 }
 
 function Combinaciones(cartasEnMesa, jugadores) {
@@ -134,8 +137,40 @@ function FullHouse(Combinacion) {
   return false;
 
 }
+function Escalera(cartasIngresadas) {
+  var str = "";
+  var limite = cartasIngresadas.length;
+  for (var i = 0; i < limite; i++) {
+    str += cartasIngresadas[i].valor+",";
+  }
+  //A,2,3,4,5 - 2,3,4,5,6 - 3,4,5,6,7 - 4,5,6,7,8 - 5,6,7,8,9
+  //6,7,8,9,10 - 7,8,9,10,J - 8,9,10,J,Q - 9,10,J,Q,K
+  var patt = [/1,2,3,4,13,/g,/1,2,3,4,5,/g,/2,3,4,5,6,/g,/3,4,5,6,7,/g,/4,5,6,7,8,/g,/5,6,7,8,9,/g,/6,7,8,9,10,/g,/7,8,9,10,11,/g,/8,9,10,11,12,/g,/9,10,11,12,13,/g];
+  var limite2 = patt.length;
+  for (var i = 0; i < limite2; i++) {
+    if (patt[i].test(str)) {
+      return true;
+    }
+  }
+  return false;
+}
+function Trio(Combinacion) {
+  var limite = Combinacion.length;
+  var contadorTres = 0;
+  var contadorDos = 0;
+  var valorTres = Combinacion[2].valor;
+  for (var icarta = 0; icarta < limite; icarta++) {
+    if(Combinacion[icarta].valor == valorTres){
+      contadorTres++;
+    }
+  }
+  if (contadorTres == 3) {
+    return true;
+  }
+  return false;
 
-function MismoColor(Combinacion) {
+}
+function MismoPalo(Combinacion) {
   var limite = Combinacion.length;
   var contador = 0;
   var palo = Combinacion[0].palo;
