@@ -36,6 +36,7 @@ function AumentarTurno() {
       GenerarTurn();
     }else if(ronda == 4){
       GenerarRiver();
+      document.getElementById('btnRetirarse').disabled = true;
     }
   }else{
     for (var i = 0; i < jugadores.length; i++) {
