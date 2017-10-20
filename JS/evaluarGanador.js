@@ -23,8 +23,6 @@ function soloJugadoresActivos(jugadores) {
   }
   return players;
 }
-
-
 function MejoresCombinacionesJugadores(tableCarts, players) {//devolver en un arreglo todos jugadores con sus mejores combionaciones
   var MejoresCombinaciones = [];
   var allCombinaciones = GenerarTodasCombinaciones(tableCarts,players);
@@ -54,7 +52,6 @@ function GenerarTodasCombinaciones(cartasEnMesa , jugadores) {
   }
   return combinacionesJugadores;
 }
-
 function CombinacionesDelJugador(cartasEnMesa, jugador) {
   var combinacionesDelJugador =[];
   combinacionesDelJugador.push([cartasEnMesa[0], cartasEnMesa[1], cartasEnMesa[2], jugador.cartas[0], jugador.cartas[1]]);
@@ -268,4 +265,51 @@ function MismoPalo(Combinacion) {
     return true;
   }
   return false;
+}
+
+function DecirCualAltura(altura){
+  var alturaTxt = "";
+  switch (altura) {
+    case 1:
+      alturaTxt = "Carta Alta";
+      return alturaTxt;
+      break;
+    case 2:
+      alturaTxt = "Pareja";
+        return alturaTxt;
+        break;
+    case 3:
+        alturaTxt = "Doble Pareja";
+        return alturaTxt;
+        break;
+    case 4:
+        alturaTxt = "Trio";
+          return alturaTxt;
+          break;
+    case 5:
+        alturaTxt = "Escalera";
+        return alturaTxt;
+        break;
+    case 6:
+        alturaTxt = "Color";
+        return alturaTxt;
+        break;
+    case 7:
+        alturaTxt = "Full House";
+        return alturaTxt;
+        break;
+    case 8:
+        alturaTxt = "Poker";
+        return alturaTxt;
+        break;
+    case 9:
+        alturaTxt = "Escalera Color";
+        return alturaTxt;
+        break;
+  case 10:
+        alturaTxt = "Escalera Real";
+        return alturaTxt;
+        break;
+  }
+
 }
