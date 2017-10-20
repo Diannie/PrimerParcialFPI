@@ -12,6 +12,7 @@ var jugadoresActivos = [];
 var numeroPasos = 0;
 var retirado=false;
 
+
 function AumentarTurno() {
   turno++;
   if (jugadores.length < turno) {
@@ -19,17 +20,19 @@ function AumentarTurno() {
   }
   if (jugadores[turno-1].activo == true) {
     if (jugadores[turno-1].conDinero) {
-    document.getElementById('btnAumentar').disabled = true;
-    document.getElementById('btnIgualar').disabled = true;
-    document.getElementById('btnTodo').disabled = true;
+      document.getElementById('btnAumentar').disabled = false;
+      document.getElementById('btnIgualar').disabled = false;
+      document.getElementById('btnTodo').disabled = false;
   }else {
-    document.getElementById('btnAumentar').disabled = false;
-    document.getElementById('btnIgualar').disabled = false;
-    document.getElementById('btnTodo').disabled = false;
+      document.getElementById('btnAumentar').disabled = true;
+      document.getElementById('btnIgualar').disabled = true;
+      document.getElementById('btnTodo').disabled = true;
+
   }
 
 
     var estadoRonda = false;
+    var finRondas= false;
     for (var i = 0; i < (jugadoresActivos.length-1); i++) {
       if ((jugadores[(jugadoresActivos[i])- 1].apuesta) == (jugadores[(jugadoresActivos[i+1]-1)].apuesta)) {
         estadoRonda = true;
@@ -38,8 +41,16 @@ function AumentarTurno() {
         estadoRonda = false;
         break;
       }
+      if ((jugadores[(jugadoresActivos[i])- 1].dinero) == 0) {
+              if ((jugadores[(jugadoresActivos[i])- 1].dinero) == (jugadores[(jugadoresActivos[i+1]-1)].dinero)) {
+        finRondas = true;
+      } else {
+        finRondas = false;
+        break;
+      }
+      }
     }
-    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) retirado == false) {
+    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) && retirado == false) {
       if (numeroPasos == 0) {
           numeroPasos = jugadoresActivos.length;
       }
@@ -47,6 +58,15 @@ function AumentarTurno() {
       document.getElementById('btnPaso').disabled = false;
       document.getElementById('btnIgualar').disabled = true;
     }
+    if (finRondas) {
+      if (ronda==2) {
+       GenerarTurn();
+       GenerarRiver();
+     }else if (ronda==3) {
+       GenerarRiver();
+     }
+      ronda=5;
+      }
     if (ronda == 2) {
       GenerarFlop();
     }else if(ronda == 3){
@@ -56,7 +76,7 @@ function AumentarTurno() {
       document.getElementById('btnRetirarse').disabled = true;
     }
     else if (ronda > 4) {
-      document.getElementById(footerBotones).style.display = 'none';
+      document.getElementById('footerBotones').style.display = 'none';
       document.getElementById('btnPaso').disabled = true;
     }
 
@@ -93,6 +113,9 @@ function IgualarApuesta() {
     jugadores[turno-1].apuesta += diferencia;
     jugadores[turno-1].dinero -= diferencia;
     dineroMesa += diferencia;
+    if (jugadores[turno-1].dinero == 0) {
+      jugadores[turno-1].conDinero = false;
+    }
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     numeroPasos = jugadoresActivos.length;
     retirado = false;
