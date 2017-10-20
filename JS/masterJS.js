@@ -73,8 +73,8 @@ function AumentarTurno() {
       }
       console.log(mensaje);
       alert("El ganados es "+Ganador(playersActivos,allBest).nombre);
-      for (var i = 0; i < jugadores.length; i++) {
-        mostrarAllCartas(i, i+1);
+      for (var i = 1; i <= jugadores.length; i++) {
+        mostrarAllCartas(jugadores, i);
       }
     }
 
@@ -91,10 +91,9 @@ function AumentarTurno() {
       }
     }
   }
-  console.log("turno:"+turno);
-  console.log("ronda:"+ronda);
-  console.log(jugadoresActivos[0] + "" + jugadoresActivos[1] + "" + jugadoresActivos[2]);
-  mostrarTurnoJugador(jugadores,turno);
+  if (ronda <= 4) {
+    mostrarTurnoJugador(jugadores,turno);
+  }
 }
 
 function Paso() {
