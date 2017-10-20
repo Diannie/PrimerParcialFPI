@@ -12,6 +12,7 @@ var jugadoresActivos = [];
 var numeroPasos = 0;
 var retirado=false;
 
+
 function AumentarTurno() {
   turno++;
   if (jugadores.length < turno) {
@@ -19,13 +20,14 @@ function AumentarTurno() {
   }
   if (jugadores[turno-1].activo == true) {
     if (jugadores[turno-1].conDinero) {
-    document.getElementById('btnAumentar').disabled = true;
-    document.getElementById('btnIgualar').disabled = true;
-    document.getElementById('btnTodo').disabled = true;
+      document.getElementById('btnAumentar').disabled = false;
+      document.getElementById('btnIgualar').disabled = false;
+      document.getElementById('btnTodo').disabled = false;
   }else {
-    document.getElementById('btnAumentar').disabled = false;
-    document.getElementById('btnIgualar').disabled = false;
-    document.getElementById('btnTodo').disabled = false;
+      document.getElementById('btnAumentar').disabled = true;
+      document.getElementById('btnIgualar').disabled = true;
+      document.getElementById('btnTodo').disabled = true;
+
   }
 
 
@@ -39,7 +41,7 @@ function AumentarTurno() {
         break;
       }
     }
-    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) retirado == false) {
+    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) && retirado == false) {
       if (numeroPasos == 0) {
           numeroPasos = jugadoresActivos.length;
       }
@@ -56,11 +58,27 @@ function AumentarTurno() {
       document.getElementById('btnRetirarse').disabled = true;
     }
     else if (ronda > 4) {
-      document.getElementById(footerBotones).style.display = 'none';
+      document.getElementById('footerBotones').style.display = 'none';
       document.getElementById('btnPaso').disabled = true;
+<<<<<<< HEAD
       for (var i = 0; i < jugadores.length; i++) {
         mostrarAllCartas(i, i+1);
       }
+=======
+      var playersActivos = soloJugadoresActivos(jugadores);
+      var allBest = MejoresCombinacionesJugadores(cartasMesa,playersActivos);
+      var mensaje = "";
+      for (var j = 0; j < allBest.length; j++) {
+        mensaje += playersActivos[j].nombre+" sus mejores cartas son: ";
+        for (var c = 0; c < allBest[j].length; c++) {
+          mensaje+= allBest[j][c].path + "  ";
+        }
+        mensaje += " su altura es :"+AlturaCombinacion(allBest[j]);
+        mensaje += "\n";
+      }
+      console.log(mensaje);
+      alert("El ganados es "+Ganador(playersActivos,allBest).nombre);
+>>>>>>> 1649d035aa5d770dc3b959923bcae7c7cc491725
     }
 
   }else{
@@ -96,6 +114,9 @@ function IgualarApuesta() {
     jugadores[turno-1].apuesta += diferencia;
     jugadores[turno-1].dinero -= diferencia;
     dineroMesa += diferencia;
+    if (jugadores[turno-1].dinero == 0) {
+      jugadores[turno-1].conDinero = false;
+    }
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     numeroPasos = jugadoresActivos.length;
     retirado = false;
