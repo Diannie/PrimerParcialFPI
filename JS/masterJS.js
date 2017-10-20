@@ -8,6 +8,8 @@ var turno = 1;
 var ronda = 1;
 var activos = 0;
 var ganadorPorDefault;
+var jugadoresActivos = [];
+
 
 function AumentarTurno() {
   turno++;
@@ -16,11 +18,11 @@ function AumentarTurno() {
   }
   if (jugadores[turno-1].activo == true) {
     var estadoRonda = false;
-    var apuestaBase = jugadores[0].apuesta;
-    for (var i = 0; i < jugadores.length; i++) {
-      if(jugadores[i].apuesta == apuestaBase){
+    for (var i = 0; i < (jugadoresActivos.length-1); i++) {
+      if ((jugadores[(jugadoresActivos[i])- 1].apuesta) == (jugadores[(jugadoresActivos[i+1]-1)].apuesta)) {
         estadoRonda = true;
-      }else {
+      }
+      else {
         estadoRonda = false;
         break;
       }
@@ -102,9 +104,10 @@ function AumentarApuesta() {
   }
 }
 
-function Retirarse() { //arreglarlo ah
+function Retirarse() {
   jugadores[turno-1].activo = false;
   jugadores[turno-1].sexo = undefined;
+  jugadoresActivos.splice(turno-1,1);
   for (var i = 0; i < jugadores.length; i++) {
     if(jugadores[i].activo == true){
       activos++;
@@ -188,6 +191,7 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
           player = new Jugador(idJugador,nombreJugador, false,cartasJugador,dineroJugador);
         }
         jugadores.push(player);
+        jugadoresActivos.push(player.id);
         //Vaciar, notificar y aumetar que se ha registrado el jugador
         alert("El jugador "+jugadores[idJugador-1].nombre+" ha sido registrado con éxito");
         document.getElementById(idJugadorInput).value = ++idJugador;
