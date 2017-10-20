@@ -18,6 +18,17 @@ function AumentarTurno() {
     turno = 1;
   }
   if (jugadores[turno-1].activo == true) {
+    if (jugadores[turno-1].conDinero) {
+    document.getElementById('btnAumentar').disabled = true;
+    document.getElementById('btnIgualar').disabled = true;
+    document.getElementById('btnTodo').disabled = true;
+  }else {
+    document.getElementById('btnAumentar').disabled = false;
+    document.getElementById('btnIgualar').disabled = false;
+    document.getElementById('btnTodo').disabled = false;
+  }
+
+
     var estadoRonda = false;
     for (var i = 0; i < (jugadoresActivos.length-1); i++) {
       if ((jugadores[(jugadoresActivos[i])- 1].apuesta) == (jugadores[(jugadoresActivos[i+1]-1)].apuesta)) {
@@ -28,7 +39,7 @@ function AumentarTurno() {
         break;
       }
     }
-    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) && retirado == false) {
+    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) retirado == false) {
       if (numeroPasos == 0) {
           numeroPasos = jugadoresActivos.length;
       }
@@ -45,6 +56,7 @@ function AumentarTurno() {
       document.getElementById('btnRetirarse').disabled = true;
     }
     else if (ronda > 4) {
+      document.getElementById(footerBotones).style.display = 'none';
       document.getElementById('btnPaso').disabled = true;
     }
 
@@ -105,18 +117,19 @@ function AumentarApuesta() {
   diferencia = apuestaMinima - jugadores[turno-1].apuesta;
   var ingresada = prompt("Ingrese cuanto aumentara su apuesta");//validar esto despues, numeros
   var ingresadaInt = parseInt(ingresada);//luego comparar con la apuesta minima
-  if(jugadores[turno-1].dinero >= ingresadaInt){
+  if(jugadores[turno-1].dinero > ingresadaInt){
     jugadores[turno-1].dinero = jugadores[turno-1].dinero - (ingresadaInt+diferencia);
     jugadores[turno-1].apuesta += (ingresadaInt+diferencia);//incrementar la apuesta del jugador
     dineroMesa += (ingresadaInt+diferencia);
     apuestaMinima+=ingresadaInt;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+    retirado = false;
     AumentarTurno();
     document.getElementById('btnPaso').disabled = true;
     document.getElementById('btnIgualar').disabled = false;
     numeroPasos = jugadoresActivos.length;
   }else {
-    alert("Dinero Insufiente");
+    alert("Dinero Insuficiente, ingrese una cantidad menor o apueste todo");
   }
 }
 
@@ -148,6 +161,7 @@ function apostarTodo(){
       apuestaMinima=jugadores[turno-1].apuesta;
     }
     jugadores[turno-1].dinero = 0;
+    jugadores[turno-1].conDinero = false;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     document.getElementById('btnPaso').disabled = true;
     document.getElementById('btnIgualar').disabled = false;
