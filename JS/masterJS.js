@@ -32,7 +32,6 @@ function AumentarTurno() {
 
 
     var estadoRonda = false;
-    var finRondas= false;
     for (var i = 0; i < (jugadoresActivos.length-1); i++) {
       if ((jugadores[(jugadoresActivos[i])- 1].apuesta) == (jugadores[(jugadoresActivos[i+1]-1)].apuesta)) {
         estadoRonda = true;
@@ -40,14 +39,6 @@ function AumentarTurno() {
       else {
         estadoRonda = false;
         break;
-      }
-      if ((jugadores[(jugadoresActivos[i])- 1].dinero) == 0) {
-              if ((jugadores[(jugadoresActivos[i])- 1].dinero) == (jugadores[(jugadoresActivos[i+1]-1)].dinero)) {
-        finRondas = true;
-      } else {
-        finRondas = false;
-        break;
-      }
       }
     }
     if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length) && retirado == false) {
@@ -58,15 +49,6 @@ function AumentarTurno() {
       document.getElementById('btnPaso').disabled = false;
       document.getElementById('btnIgualar').disabled = true;
     }
-    if (finRondas) {
-      if (ronda==2) {
-       GenerarTurn();
-       GenerarRiver();
-     }else if (ronda==3) {
-       GenerarRiver();
-     }
-      ronda=5;
-      }
     if (ronda == 2) {
       GenerarFlop();
     }else if(ronda == 3){
