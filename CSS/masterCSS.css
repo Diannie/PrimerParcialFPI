@@ -277,3 +277,13 @@ input:disabled{
   top: -235%;
   left: 0%;
 }
+.areaDeJuego{
+   position: static;
+   background-color: darkgreen;
+   width: 260px;
+   height: 25%;
+   border-radius: 10px;
+   visibility: visible;
+   top: -200%;
+   left: 50%;
+}
