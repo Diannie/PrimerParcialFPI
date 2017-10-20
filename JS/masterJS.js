@@ -140,7 +140,7 @@ function apostarTodo(){
   dineroMesa += (jugadores[turno-1].dinero);
 
     if (jugadores[turno-1].dinero >= diferencia) {
-      apuestaMinima+=jugadores[turno-1].dinero;
+      apuestaMinima+=jugadores[turno-1].apuesta;
     }
     jugadores[turno-1].dinero = 0;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
