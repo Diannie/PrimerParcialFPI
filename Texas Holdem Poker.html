@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Texas Holdem Poker</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=icon href=IMG/favicon.png type="image/png">
@@ -10,15 +11,15 @@
 
     <body onload="MostrarInicionDeJuego()">
     <header id="idheader">
-      <img src="IMG/cartaslogo.png" id="headerimg" alt="TEXAS HOLDEM POKER">
-      <img src="IMG/texasholdemlogo.png" id="headerimg" alt="TEXAS HOLDEM POKER">
-      <img src="IMG/cartaslogo.png" id="headerimg" alt="TEXAS HOLDEM POKER">
+      <img src="IMG/cartaslogo.png" id="headerimg1" alt="TEXAS HOLDEM POKER">
+      <img src="IMG/texasholdemlogo.png" id="headerimg2" alt="TEXAS HOLDEM POKER">
+      <img src="IMG/cartaslogo.png" id="headerimg3" alt="TEXAS HOLDEM POKER">
     </header>
 
     <div class="inicioDeJuego" id="inicioDeJuego">
       <h1>Bienvenido</h1>
       <br><br><h2>Primero ingrese la apuesta mínima</h2><br><br>
-      <h2><input type="text" id="txtApuestaInicial" value="1" onkeypress="return SoloNumeros(event)" maxlength="4" placeholder="$"></h2><br>
+      <h2>$<input type="text" id="txtApuestaInicial" value="1" onkeypress="return SoloNumeros(event)" maxlength="4" placeholder="$"></h2><br>
       <h2><input type="button" id="btnJuego" class="button" value="Iniciar Partida" onclick="ValidarApuestaInicial()"></h2>
     </div>
 
@@ -26,15 +27,15 @@
       <br><br>
     <fieldset>
       <legend>REGISTRO DE JUGADORES</legend>
-        <label for="" id="lblApuestaMinima"></label><br><br><br>
-        <label for="idJugador"> Número de Jugador: </label>
+        <label id="lblApuestaMinima"></label><br><br><br>
+        <label> Número de Jugador: </label>
         <input type="number" id="idJugador" value="1" disabled> <br><br>
-        <label for="nombreJugador"> Nombre: </label>
+        <label> Nombre: </label>
         <input type="text" id="nombreJugador" onkeypress="return soloLetras(event)" placeholder="Ingresar nombre" maxlength="10"><br><br>
-        <label for="sexoJugador"> Género: </label>
+        <label> Género: </label>
         <input type="radio" name="sexo" id="rbtnHombre" checked>Masculino
         <input type="radio" name="sexo" id="rbtnMujer">Femenino<br><br>
-        <label for="dineroInicial"> Dinero para jugar: </label>
+        <label> Dinero para jugar: </label>
         <input type="text" id="dineroInicial" onkeypress="return SoloNumeros(event)" placeholder="Dinero para apostar" maxlength="7"><br><br>
         <input type="button" id="btnRegistrar" value="Registrar Jugador" onclick="RegistrarJugador('idJugador','nombreJugador','rbtnHombre','rbtnMujer','dineroInicial','btnRegistrar')">
         <input type="button" id="btnIniciar" value="Iniciar Juego" onclick="ValidarParaIniciarJuego()">
@@ -54,7 +55,7 @@
       <div class="acumulacion" id="valoresMesa">
         <img src="IMG/fichasMesa.png" alt="image de fichas">
         <br>
-        <label for="dineroAcumulado" id="sumaAcumulada">$</label>
+        <label id="sumaAcumulada">$</label>
       </div>
 
       <div id="p1" class="player" >
@@ -62,8 +63,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p1Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p1Carta2">
         <img src="IMG/hombre.png" id="p1Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p1Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p1Apuesta">Apuesta:</label>
+        <label id="p1Dinero">Saldo:</label><br>
+        <label id="p1Apuesta">Apuesta:</label>
       </div>
 
       <div id="p2" class="player" >
@@ -71,8 +72,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p2Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p2Carta2">
         <img src="IMG/hombre.png" id="p2Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p2Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p2Apuesta">Apuesta:</label>
+        <label id="p2Dinero">Saldo:</label><br>
+        <label id="p2Apuesta">Apuesta:</label>
       </div>
 
       <div id="p3" class="player" >
@@ -80,8 +81,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p3Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p3Carta2">
         <img src="IMG/hombre.png" id="p3Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p3Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p3Apuesta">Apuesta:</label>
+        <label id="p3Dinero">Saldo:</label><br>
+        <label id="p3Apuesta">Apuesta:</label>
       </div>
 
       <div id="p4" class="player" >
@@ -89,8 +90,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p4Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p4Carta2">
         <img src="IMG/hombre.png" id="p4Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p4Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p4Apuesta">Apuesta:</label>
+        <label id="p4Dinero">Saldo:</label><br>
+        <label id="p4Apuesta">Apuesta:</label>
       </div>
 
       <div id="p5" class="player" >
@@ -98,8 +99,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p5Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p5Carta2">
         <img src="IMG/hombre.png" id="p5Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p5Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p5Apuesta">Apuesta:</label>
+        <label id="p5Dinero">Saldo:</label><br>
+        <label id="p5Apuesta">Apuesta:</label>
       </div>
 
       <div id="p6" class="player" >
@@ -107,8 +108,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p6Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p6Carta2">
         <img src="IMG/hombre.png" id="p6Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p6Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p6Apuesta">Apuesta:</label>
+        <label id="p6Dinero">Saldo:</label><br>
+        <label id="p6Apuesta">Apuesta:</label>
       </div>
 
       <div id="p7" class="player" >
@@ -116,8 +117,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p7Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p7Carta2">
         <img src="IMG/hombre.png" id="p7Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p7Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p7Apuesta">Apuesta:</label>
+        <label id="p7Dinero">Saldo:</label><br>
+        <label id="p7Apuesta">Apuesta:</label>
       </div>
 
       <div id="p8" class="player" >
@@ -125,8 +126,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p8Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p8Carta2">
         <img src="IMG/hombre.png" id="p8Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p8Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p8Apuesta">Apuesta:</label>
+        <label id="p8Dinero">Saldo:</label><br>
+        <label id="p8Apuesta">Apuesta:</label>
       </div>
 
       <div id="p9" class="player" >
@@ -134,8 +135,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p9Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p9Carta2">
         <img src="IMG/hombre.png" id="p9Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p9Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p9Apuesta">Apuesta:</label>
+        <label id="p9Dinero">Saldo:</label><br>
+        <label id="p9Apuesta">Apuesta:</label>
       </div>
 
       <div id="p10" class="player" >
@@ -143,8 +144,8 @@
         <img src="IMG/back.png" alt="Carta 1 del Jugador" id="p10Carta1">
         <img src="IMG/back.png" alt="Carta 2 del Jugador" id="p10Carta2">
         <img src="IMG/mujer.png" id="p10Foto" alt="Foto del jugador"><br>
-        <label for="dineroTotal" id="p10Dinero">Saldo:</label><br>
-        <label for="dineroApuesta" id="p10Apuesta">Apuesta:</label>
+        <label id="p10Dinero">Saldo:</label><br>
+        <label id="p10Apuesta">Apuesta:</label>
       </div>
   	</div>
     </div>
