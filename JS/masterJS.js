@@ -73,6 +73,9 @@ function AumentarTurno() {
       }
       console.log(mensaje);
       alert("El ganados es "+Ganador(playersActivos,allBest).nombre);
+      for (var i = 0; i < jugadores.length; i++) {
+        mostrarAllCartas(i, i+1);
+      }
     }
 
   }else{
