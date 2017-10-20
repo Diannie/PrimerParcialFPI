@@ -9,7 +9,7 @@ var ronda = 1;
 var activos = 0;
 var ganadorPorDefault;
 var jugadoresActivos = [];
-
+var numeroPasos = 0;
 
 function AumentarTurno() {
   turno++;
@@ -27,8 +27,13 @@ function AumentarTurno() {
         break;
       }
     }
-    if (estadoRonda) {
+    if (estadoRonda == true && (numeroPasos == 0 || numeroPasos == jugadoresActivos.length)) {
+      if (numeroPasos == 0) {
+          numeroPasos = jugadoresActivos.length;
+      }
       ronda++;
+      document.getElementById('btnPaso').disabled = false;
+      document.getElementById('btnIgualar').disabled = true;
     }
     if (ronda == 2) {
       GenerarFlop();
@@ -38,6 +43,10 @@ function AumentarTurno() {
       GenerarRiver();
       document.getElementById('btnRetirarse').disabled = true;
     }
+    else if (ronda > 4) {
+      document.getElementById('btnPaso').disabled = true;
+    }
+
   }else{
     for (var i = 0; i < jugadores.length; i++) {
       if (jugadores[turno-1].activo) {
@@ -57,12 +66,8 @@ function AumentarTurno() {
 }
 
 function Paso() {
-  if(ronda == 1){
-    document.getElementById('btnPaso').disabled = true;
-  }else {
-    document.getElementById('btnPaso').disabled = false;
-    AumentarTurno();
-  }
+  numeroPasos --;
+  AumentarTurno();
 
 }
 
@@ -74,6 +79,7 @@ function IgualarApuesta() {
     jugadores[turno-1].dinero -= diferencia;
     dineroMesa += diferencia;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+    numeroPasos = jugadoresActivos.length;
     AumentarTurno();
   }else {
     alert("Dinero Insufiente");
@@ -85,7 +91,9 @@ function IgualarApuestaInicial() {
   dineroMesa = apuestaMinima;
   jugadores[0].apuesta = apuestaMinima;
   document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+  numeroPasos = jugadoresActivos.length;
   AumentarTurno();
+
 }
 
 function AumentarApuesta() {
@@ -100,6 +108,9 @@ function AumentarApuesta() {
     apuestaMinima+=ingresadaInt;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
     AumentarTurno();
+    document.getElementById('btnPaso').disabled = true;
+    document.getElementById('btnIgualar').disabled = false;
+    numeroPasos = jugadoresActivos.length;
   }else {
     alert("Dinero Insufiente");
   }
@@ -118,6 +129,7 @@ function Retirarse() {
   if(activos==1){
     alert("El ganador por default es"+jugadores[ganadorPorDefault].nombre);
   }
+  numeroPasos = jugadoresActivos.length;
   AumentarTurno();
 }
 
@@ -127,11 +139,14 @@ function apostarTodo(){
   jugadores[turno-1].apuesta += (jugadores[turno-1].dinero);//incrementar la apuesta del jugador
   dineroMesa += (jugadores[turno-1].dinero);
 
-    if (jugadores[turno-1].dinero > diferencia) {
+    if (jugadores[turno-1].dinero >= diferencia) {
       apuestaMinima+=jugadores[turno-1].dinero;
     }
     jugadores[turno-1].dinero = 0;
     document.getElementById('sumaAcumulada').innerHTML = "$" + dineroMesa;
+    document.getElementById('btnPaso').disabled = true;
+    document.getElementById('btnIgualar').disabled = false;
+    numeroPasos = jugadoresActivos.length;
     AumentarTurno();
 
 }
@@ -213,6 +228,7 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
 }
 
 function ValidarParaIniciarJuego() {
+  document.getElementById('btnPaso').disabled = true;
   if(jugadores.length >= 0){
     MostrarAreaDeJuego();
     mostrarJugadores(jugadores);

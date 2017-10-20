@@ -224,6 +224,9 @@ align-content: center;
   visibility: hidden;
 }
 
+input:disabled{
+  color: #2F4F4F;
+}
 
 #p1{
   top: -30%;
