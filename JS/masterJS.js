@@ -12,6 +12,7 @@ var jugadoresActivos = [];
 var numeroPasos = 0;
 var retirado=false;
 
+
 function AumentarTurno() {
   turno++;
   if (jugadores.length < turno) {
@@ -28,6 +29,8 @@ function AumentarTurno() {
       document.getElementById('btnTodo').disabled = true;
 
   }
+
+
     var estadoRonda = false;
     for (var i = 0; i < (jugadoresActivos.length-1); i++) {
       if ((jugadores[(jugadoresActivos[i])- 1].apuesta) == (jugadores[(jugadoresActivos[i+1]-1)].apuesta)) {
@@ -68,7 +71,7 @@ function AumentarTurno() {
         mensaje += " su altura es :"+AlturaCombinacion(allBest[j]);
         mensaje += "\n";
       }
-      Ganador(playersActivos,allBest);
+      document.getElementById('areaGanador').innerHTML = 'El ganador es: ' + Ganador(playersActivos,allBest).nombre + ' con una combinación de: ' + DecirCualAltura(altura);
       document.getElementById('areaGanador').style.display = 'block';
       console.log(mensaje);
       for (var i = 1; i <= jugadores.length; i++) {
@@ -93,12 +96,14 @@ function AumentarTurno() {
     mostrarTurnoJugador(jugadores,turno);
   }
 }
+
 function Paso() {
   numeroPasos --;
   retirado = false;
   AumentarTurno();
 
 }
+
 function IgualarApuesta() {
   var diferencia = 0;
   diferencia = apuestaMinima - jugadores[turno-1].apuesta;
@@ -117,6 +122,7 @@ function IgualarApuesta() {
     alert("Dinero Insufiente");
   }
 }
+
 function IgualarApuestaInicial() {
   jugadores[0].dinero = jugadores[0].dinero - apuestaMinima;
   dineroMesa = apuestaMinima;
@@ -126,6 +132,7 @@ function IgualarApuestaInicial() {
   AumentarTurno();
 
 }
+
 function AumentarApuesta() {
   var diferencia = 0;
   diferencia = apuestaMinima - jugadores[turno-1].apuesta;
@@ -146,6 +153,7 @@ function AumentarApuesta() {
     alert("Dinero Insuficiente, ingrese una cantidad menor o apueste todo");
   }
 }
+
 function Retirarse() {
   jugadores[turno-1].activo = false;
   jugadores[turno-1].sexo = undefined;
@@ -158,11 +166,14 @@ function Retirarse() {
   }
 
   if(jugadoresActivos.length==1){
-    alert("El ganador por default es"+jugadores[jugadoresActivos[0]-1].nombre);
+    document.getElementById('areaGanador').innerHTML = "El ganador por default es: "+jugadores[jugadoresActivos[0]-1].nombre;
+    document.getElementById('areaGanador').style.display = 'block';
+    document.getElementById('footerBotones').style.display = 'none';
   }
   numeroPasos = jugadoresActivos.length;
   AumentarTurno();
 }
+
 function apostarTodo(){
   var diferencia = 0;
   diferencia = apuestaMinima - jugadores[turno-1].apuesta;
@@ -195,6 +206,7 @@ function GenerarRiver() {
   cartasMesa.push(RepartirCarta(mazoDeCartas));
   document.getElementById('carta5Mesa').src = "IMG/"+cartasMesa[4].path+".png";
 }
+
 function ValidarApuestaInicial() {
   var valorInicial = document.getElementById("txtApuestaInicial");
   valorInicial = parseInt(valorInicial.value);
@@ -206,10 +218,12 @@ function ValidarApuestaInicial() {
     alert("La apuesta mínima debe estar entre $1 y $1000");
   }
 }
+
 function RegistrarApuestaMinima(entradaApuestaInput) {
   var entradaApuesta = document.getElementById(entradaApuestaInput).value;
   apuestaMinima = parseInt(entradaApuesta);
 }
+
 function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, rbtnMujerInput, dineroJugadorInput, btnOut) {
   var idJugador = document.getElementById(idJugadorInput);
   var nombreJugador = document.getElementById(nombreJugadorInput);
@@ -241,7 +255,7 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
         document.getElementById(idJugadorInput).value = ++idJugador;
         document.getElementById(nombreJugadorInput).value = "";
         document.getElementById(dineroJugadorInput).value = "";
-        document.getElementById(nombreJugadorInput).focus();
+
       } else {
         alert("La apuesta minima es "+apuestaMinima);
       }
@@ -254,9 +268,10 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
     alert("El número máximo de jugadores ya ha sido registrado, puede iniciar la partida");
   }
 }
+
 function ValidarParaIniciarJuego() {
   document.getElementById('btnPaso').disabled = true;
-  if(jugadores.length >= 2){
+  if(jugadores.length >= 0){
     MostrarAreaDeJuego();
     mostrarJugadores(jugadores);
     mostrarTurnoJugador(jugadores,turno);
