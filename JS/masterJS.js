@@ -241,7 +241,7 @@ function RegistrarJugador(idJugadorInput, nombreJugadorInput, rbtnHombreInput, r
         document.getElementById(idJugadorInput).value = ++idJugador;
         document.getElementById(nombreJugadorInput).value = "";
         document.getElementById(dineroJugadorInput).value = "";
-
+        document.getElementById(nombreJugadorInput).focus();
       } else {
         alert("La apuesta minima es "+apuestaMinima);
       }
