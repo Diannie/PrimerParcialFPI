@@ -3,7 +3,15 @@ function Ganador(jugadores, allBestCarts) {
   for (var j = 0; j < jugadores.length; j++) {
     Alturas.push(AlturaCombinacion(allBestCarts[j]));
   }
+  Alturas.sort(function(a, b){return a-b});
+  var alturaMax = Alturas[Alturas.length-1];
 
+  for (var j = 0; j < jugadores.length; j++) {
+    if (alturaMax == AlturaCombinacion(allBestCarts[j])) {
+      return jugadores[j];
+    }
+  }
+  return jugadores[0];//por si no fuciona devolver el primer jugador
 }
 function soloJugadoresActivos(jugadores) {
   var limite = jugadores.length;
@@ -15,6 +23,7 @@ function soloJugadoresActivos(jugadores) {
   }
   return players;
 }
+
 
 function MejoresCombinacionesJugadores(tableCarts, players) {//devolver en un arreglo todos jugadores con sus mejores combionaciones
   var MejoresCombinaciones = [];
