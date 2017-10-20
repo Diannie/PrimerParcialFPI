@@ -1,6 +1,17 @@
-
+function MejorCombinancion(CombinacionesDelJugador) {//devuelve la mejor combinacion del jugador de todas las ingresadas
+  var limite = CombinacionesDelJugador.length;
+  var altura = 1;
+  var mejorIteracion;
+  for (var i = 0; i < limite; i++) {
+    if(AlturaCombinacion(CombinacionesDelJugador[i]) > altura){
+      altura = AlturaCombinacion(CombinacionesDelJugador[i]);
+      mejorIteracion=i;
+    }
+  }
+  return CombinacionesDelJugador[mejorIteracion];
+}
 function AlturaCombinacion(cartasDesorden) { //devuelve la mano de poker de las combinaciones posibles
-  var altura = 0;
+  var altura = 1;
   var cartasOrdenadas = OrdenarCombinacion(cartasDesorden);
   if(MismoPalo(cartasOrdenadas)){
     //EscaleraReal: A,K,Q,J,10 del mismo palo
